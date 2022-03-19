@@ -1,51 +1,42 @@
-const cors = require("cors");
-const exp = require("express");
-const bp = require("body-parser");
-const passport = require("passport");
-const { connect } = require("mongoose");
-const { success, error } = require("consola");
+const express = require("express");
+const app = express();
+const dotenv=require("dotenv");
+const mongoose = require("mongoose");
+const bodyParser=require('body-parser');
+const cors = require('cors')
+dotenv.config();
 
-// Bring in the app constants
-const { DB, PORT } = require("./controllers");
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(console.log("Connected to MongoDB"))
+  .catch((err) => console.log(err));
 
-// Initialize the application
-const app = exp();
 
-// Middlewares
-app.use(cors());
-app.use(bp.json());
-app.use(passport.initialize());
+const SuperAdmin=require('./Routes/SuperAdmin_routes');
+const Admin=require('./Routes/Admin_routes');
+const User=require('./Routes/User_routes');
+const Vendor=require('./Routes/Vendor_routes');
+const { read } = require("fs");
 
-require("./middlewares/passport")(passport);
 
-// User Router Middleware
-app.use("/api/users", require("./routes/users"));
+app.use(cors())
+app.use(express.json());
 
-const startApp = async () => {
-  try {
-    // Connection With DB
-    await connect(DB, {
-      useFindAndModify: true,
-      useUnifiedTopology: true,
-      useNewUrlParser: true
-    });
+app.use(bodyParser.json());
 
-    success({
-      message: `Successfully connected with the Database \n${DB}`,
-      badge: true
-    });
+app.use(express.urlencoded({ extended: false }));
 
-    // Start Listenting for the server on PORT
-    app.listen(PORT, () =>
-      success({ message: `Server started on PORT ${PORT}`, badge: true })
-    );
-  } catch (err) {
-    error({
-      message: `Unable to connect with Database \n${err}`,
-      badge: true
-    });
-    startApp();
-  }
-};
+//Routes
+app.use('/superadmin', SuperAdmin);
+app.use('/user', User);
+app.use('/requirement',Admin);
+app.use('/candidate',Vendor);
 
-startApp();
+
+app.listen("5000", () => {
+    
+    console.log("Backend is running.");
+  });
