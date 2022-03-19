@@ -8,10 +8,15 @@ import StoreIcon from "@mui/icons-material/Store";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Sidebar = () => {
+  let navigate = useNavigate()
+  const logutHandler = (e) =>{
+    localStorage.clear();
+    navigate("/");
+  }
 
   return (
     <div className="sidebar">
@@ -52,7 +57,7 @@ const Sidebar = () => {
           </li>
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span onClick={logutHandler}>Logout</span>
           </li>
         </ul>
       </div>

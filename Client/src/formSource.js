@@ -1,4 +1,4 @@
-
+//sub admin input list
 export const userInputs = [
     {
       id: 1,
@@ -27,11 +27,19 @@ export const userInputs = [
     {
       id: 5,
       label: "Employee Id",
-      type: "number",
+      type: "text",
       placeholder: "Enter Your Emp Id",
+    },
+    {
+      id: 6,
+      label: "Password",
+      type: "password",
+      placeholder: "Password",
     },
   ];
   
+
+  //requirement form inputs
   export const RequirementInputs = [
     {
       id: 1,
@@ -46,26 +54,26 @@ export const userInputs = [
       type: "text",
       placeholder: "Major Skills",
     },
+    // {
+    //   id: 3,
+    //   label: "Details",
+    //   type: "text",
+    //   placeholder: "Details",
+    // },
     {
       id: 3,
-      label: "Details",
-      type: "text",
-      placeholder: "Details",
-    },
-    {
-      id: 4,
       label: "Client",
       type: "text",
       placeholder: "Client",
     },
     {
-        id: 5,
+        id: 4,
         label: "Location",
         type: "text",
         placeholder: "Location",
     },
     {
-        id: 6,
+        id: 5,
         label: "Expected Years of experience",
         type: "text",
         placeholder: "Expected Years of experience",
@@ -79,73 +87,73 @@ export const userInputs = [
     {
         id: 8,
         label: "Expire Date",
-        type: "text",
+        type: "date",
         placeholder: "Expire Date",
     },
 
   ];
 
+//vendor form inputs
 
   export const vendorInputs = [
     {
       id: 1,
-      label: "Venderid",
+      label: "Company Name",
       type: "text",
-      placeholder: "Enter your venderID",
+      placeholder: "Enter your Company Name",
     },
     {
       id: 2,
-      label: "Vender Name",
-      type: "mail",
-      placeholder: "Enter0 your Vender Name",
+      label: "Company GST Number",
+      type: "gst",
+      placeholder: "Enter your Company GST Number ",
     },
     {
       id: 3,
-      label: "Service Location",
-      type: "text",
-      placeholder: "Enter your Service Location",
+      label: "Company Pan Number",
+      type: "pan",
+      placeholder: "Enter your Company Pan Number",
     },
     {
       id: 4,
-      label: "GST Number",
-      type: "text",
-      placeholder: "Enter Your  GST Number",
+      label: "Company Aadhar Number",
+      type: "Aadhar",
+      placeholder: "Enter Your Company Aadhar Number ",
     },
     {
       id: 5,
-      label: "Registerd Office Addres",
-      type: "number",
-      placeholder: "Enter Your Registerd Office  Addres",
+      label: "Point Of Contact",
+      type: "text",
+      placeholder: "Enter Your name",
     },
     {
       id: 6,
-      label: "Vender Contact Name",
-      type: "number",
-      placeholder: "Enter Vender Contact Name",
+      label: "User Name",
+      type: "text",
+      placeholder: "Enter Your User name",
     },
-
     {
       id: 7,
-      label: "Mobile Number",
-      type: "number",
-      placeholder: "Enter Mobile Number",
+      label: "Email",
+      type: "email",
+      placeholder: "Enter Your email",
     },
     {
       id: 8,
-      label: "EmailId",
-      type: "number",
-      placeholder: "Enter Email ID",
+      label: "Role",
+      type: "text",
+      placeholder: "Enter your role",
     },
     {
       id: 9,
-      label: "Vender Contact Name",
-      type: "number",
-      placeholder: "Enter Vender Contact Name",
+      label: "Mobile Number",
+      type: "tel",
+      placeholder: "Enter Your Mobile Number",
     },
     {
       id: 10,
-      label: "Logo file",
-      type: "number",
-      placeholder: "Logo file",
+      label: "Password",
+      type: "password",
+      placeholder: "Enter Your Password",
     },
   ];

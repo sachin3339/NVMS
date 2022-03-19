@@ -17,15 +17,26 @@ import {useState} from 'react'
 import axios from 'axios' 
 
 function App() {
+  const accesToken = localStorage.getItem('token');
+  const apiUrl= 'http://localhost:5000'
+
+  const authAxios = axios.create({
+    baseURL : apiUrl,
+    headers:{
+      Authorization: `Bearer ${accesToken}`
+    }
+  })
+  console.log(accesToken)
+
  
-  const [jobForm ,setJobForm]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '', 6:'', 7:'',8:'',9:''})
+  const [jobForm ,setJobForm]= useState({1:'' , 2:'',  4: '' , 5: '', 6:'', 7:'',8:'',9:''})
   const [formData, setFormData]=useState(0)
  
-  const [subAdminForm ,setSubAdminForm]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: ''})
+  const [subAdminForm ,setSubAdminForm]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '',6:''})
+  const [vendorForm, setvendorForm ]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '', 6:'', 7:'',8:'',9:'',10:''})
 
-
-  // let navigate = useNavigate();
-
+  
+//job form data handler and submi
   const jobFormSubmit = (e) =>{
     
     e.preventDefault()
@@ -33,21 +44,21 @@ function App() {
     let jobFormData ={
       Details: jobForm[1],
       Skills: jobForm[2],
-      Client: jobForm[4],
-      Location: jobForm[5],
-      EOY: jobForm[6],
+      Client: jobForm[3],
+      Location: jobForm[4],
+      EOY: jobForm[5],
       Expiry_date: jobForm[8],
-      email: jobForm[4],
+      email: '',
     }
 
-    axios.post('http://localhost:5000/requirement/create',jobFormData)
+    authAxios.post(`http://localhost:5000/requirement/create`,jobFormData)
     .then((res)=>{
       setFormData(res.status)
      console.log(res)
      if(res.status===200){
         
       console.log(jobFormData)
-      setTimeout(function() {setJobForm({1:'' , 2:'', 3:'' , 4: '' , 5: '', 6:'', 7:'',8:'',9:''})}, 2000)
+      setTimeout(function() {setJobForm({1:'' , 2:'', 4: '' , 5: '', 6:'', 7:'',8:'',9:''})}, 2000)
 
          // <Redirect to='/home'/>
         //  navigate("/home");     
@@ -59,6 +70,7 @@ function App() {
     })
 
    }
+   //sub admin  form data handler and submi
    const subAdminFormSubmit = (e) =>{
     
     e.preventDefault()
@@ -66,18 +78,19 @@ function App() {
     let subadminFormData ={
       username: subAdminForm[1],
       email: subAdminForm[2],
-      role: subAdminForm[4],
+      role: subAdminForm[3],
+      password:subAdminForm[6],
      
     }
 
-    axios.post('http://localhost:5000/superadmin/onboardadmin',subadminFormData)
+    authAxios.post('http://localhost:5000/superadmin/onboardadmin',subadminFormData)
     .then((res)=>{
       setFormData(res.status)
      console.log(res)
      if(res.status===200){
         
       console.log(subadminFormData)
-      setTimeout(function() {setSubAdminForm({1:'' , 2:'', 3:'' , 4: '' , 5: ''})}, 2000)
+      setTimeout(function() {setSubAdminForm({1:'' , 2:'', 3:'' , 4: '' , 5: '',6:''})}, 2000)
 
          // <Redirect to='/home'/>
         //  navigate("/home");     
@@ -89,16 +102,51 @@ function App() {
     })
 
    }
+   // vendor formdata
+   const vendorFormSubmit = (e) =>{
+    
+    e.preventDefault()
+      console.log(vendorForm)
+    let vendorFormData ={
+      POC: vendorForm[5],
+      User: {
+        username:vendorForm[6],
+        email:vendorForm[7],
+        role:vendorForm[8],
+        mobile:vendorForm[9],
+        password:vendorForm[10]
+      } ,
+      GST: vendorForm[2],
+      PAN: vendorForm[3],
+      CNAME: vendorForm[1],
+      Aadhar:vendorForm[4],
+
+    }
+
+    authAxios.post(`${apiUrl}/superadmin/onboarvendor`,vendorFormData)
+
+    .then((res)=>{
+      setFormData(res.status)
+     console.log(res)
+     if(res.status===200){
+      console.log(vendorFormData)
+      setTimeout(function() {setvendorForm({1:'' , 2:'', 3:'' , 4: '', 5: '', 6:'', 7:'',8:'',9:'',10:''})}, 2000)  
+    }
+  }
+
+  ).catch(err =>{
+      console.log(err)
+  })
+
+ }
+
+
 
   return (
     <div className= "app">
       <BrowserRouter>
         <Routes>
-
-    
-
-        
-          <Route path="/">
+            <Route path="/">
             <Route index element={<Login />} />
             <Route path="home" element={<Home />} />
             <Route path="users">
@@ -106,7 +154,9 @@ function App() {
             
               <Route
                 path="newvendor"
-                element={<Vendor inputs={vendorInputs} title="Add New Vendor" />}
+                element={<New inputs={vendorInputs} title="Add New Vendor"
+                form={vendorForm} setForm={(vendorFormData) => setvendorForm(vendorFormData)} 
+                func={(e) => vendorFormSubmit(e)} />}
               />
               <Route
                 path="newsubadmin"

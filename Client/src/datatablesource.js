@@ -125,3 +125,69 @@ export const userColumns = [
     },
   ];
   
+  export const jobColumns = [
+    { field: "id", headerName: "ID", width: 70 },
+    {
+      field: "Details",
+      headerName: "Job",
+      width: 230,
+      // renderCell: (params) => {
+      //   return (
+      //     <div className="cellWithImg">
+      //       <img className="cellImg" src={params.row.img} alt="avatar" />
+      //       {params.row.username}
+      //     </div>
+      //   );
+      // },
+    },
+    {
+      field: "Skills",
+      headerName: "Skills",
+      width: 230,
+    },
+  
+    {
+      field: "Client",
+      headerName: "Client",
+      width: 150,
+    },
+    // {
+    //   field: "status",
+    //   headerName: "Status",
+    //   width: 160,
+    //   renderCell: (params) => {
+    //     return (
+    //       <div className={`cellWithStatus ${params.row.status}`}>
+    //         {params.row.status}
+    //       </div>
+    //     );
+
+    // },
+      
+    // },
+    {
+      field: "Locations",
+      headerName: "Location",
+      width: 150,
+    },
+    {
+      field: "EOY",
+      headerName: "EOY",
+      width: 150,
+    },
+    {
+      field: "Expiry_date",
+      headerName: "Expiry Date",
+      width: 150,
+    },
+  ];
+
+  export const jobRows = [{
+        id: 1,
+    Details: "React Developer",
+    Skills: "react react-rputer, next",
+    Client: "ReactDEV",
+    Locations: "BEngaluru",
+    EOY: "5",
+    Expiry_date: "2022-05-10",
+  }]
