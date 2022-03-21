@@ -9,7 +9,37 @@ import { useNavigate } from "react-router-dom";
 
 const New = ({ inputs, title , func , form , setForm, nav}) => {
   const [file, setFile] = useState("");
+  const [submitted , setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
   let navigate = useNavigate();
+
+  const successMessage = () => {
+    return (
+      <div
+        className="success"
+        style={{
+          display: submitted ? '' : 'none',
+        }}>
+        <h1 style={{color:"teal", marginLeft:"5%"}}>Data Added Successfully</h1>
+      </div>
+    );
+  };
+
+  const errorMessage = () => {
+    return (
+      <div
+        className="error"
+        style={{
+          display: error ? '' : 'none',
+        }}>
+        <h4 >Please enter <sup style={{color:"red"}}>*</sup> fields</h4>
+      </div>
+    );
+  };
+
+
+
+
   return (
     <div className="new">
       <Sidebar />
@@ -17,6 +47,8 @@ const New = ({ inputs, title , func , form , setForm, nav}) => {
         <Navbar />
         <div className="top">
           <h1>{title}</h1>
+          {successMessage()}  {errorMessage()}
+        
         </div>
         <div className="bottom">
           <div className="left">
@@ -47,17 +79,20 @@ const New = ({ inputs, title , func , form , setForm, nav}) => {
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
                   <input type={input.type} placeholder={input.placeholder} value={form[input.id]} onChange={(e) => {
-let obj = {...form};
-obj[input.id] = e.target.value;
-setForm(obj);
-}}/>
+                 let obj = {...form};
+                 obj[input.id] = e.target.value;
+                  setForm(obj);
+                  }}/>
                 </div>
                 
               ))}
               <button onClick={(e)=>{func(e)
-              
-               navigate(nav);
+               setSubmitted(true)
+               
+      
+              //  navigate(nav);
               }}>Submit</button>
+          
             </form>
           </div>
         </div>
