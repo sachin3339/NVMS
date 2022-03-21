@@ -1,12 +1,12 @@
 import React, {  useState } from 'react'
-import {Navigate ,Redirect ,BrowserRouter, Routes, Route , useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 import axios from 'axios'
-import Home from '../home/Home';
+
 
 
 const Login=()=>{
@@ -42,7 +42,14 @@ const submitHandler = (e)=>{
    axios.post('http://localhost:5000/user/login',formData)
    .then((res)=>{
     setLoginStatus(res.status)
+        //getToken(res.data.token)
+    localStorage.setItem('token', res.data.token);
+    const cat = localStorage.getItem('token');
+
+    console.log(cat)
     console.log(res)
+    console.log(res.data)
+    console.log(res.data.token)
     if(res.status===200){
        
         

@@ -1,13 +1,14 @@
 export const userColumns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "_id", headerName: "ID", width: 70 },
     {
-      field: "user",
+      field: "username",
       headerName: "User",
       width: 230,
       renderCell: (params) => {
         return (
           <div className="cellWithImg">
-            <img className="cellImg" src={params.row.img} alt="avatar" />
+            <img className="cellImg" src={params.row.profilePic || "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+     } alt="avatar" />
             {params.row.username}
           </div>
         );
@@ -19,25 +20,25 @@ export const userColumns = [
       width: 230,
     },
   
-    {
-      field: "phone",
-      headerName: "Phone Number",
-      width: 150,
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 160,
-      renderCell: (params) => {
-        return (
-          <div className={`cellWithStatus ${params.row.status}`}>
-            {params.row.status}
-          </div>
-        );
+    // {
+    //   field: "phone",
+    //   headerName: "Phone Number",
+    //   width: 150,
+    // },
+    // {
+    //   field: "status",
+    //   headerName: "Status",
+    //   width: 160,
+    //   renderCell: (params) => {
+    //     return (
+    //       <div className={`cellWithStatus ${params.row.status}`}>
+    //         {params.row.status}
+    //       </div>
+    //     );
 
-    },
+    // },
       
-    },
+    // },
  
   ];
   
@@ -125,3 +126,139 @@ export const userColumns = [
     },
   ];
   
+  export const jobColumns = [
+    { field: "_id", headerName: "ID", width: 170 },
+    {
+      field: "Details",
+      headerName: "Job",
+      width: 230,
+      // renderCell: (params) => {
+      //   return (
+      //     <div className="cellWithImg">
+      //       <img className="cellImg" src={params.row.img} alt="avatar" />
+      //       {params.row.username}
+      //     </div>
+      //   );
+      // },
+    },
+    {
+      field: "Skills",
+      headerName: "Skills",
+      width: 230,
+    },
+  
+    {
+      field: "Client",
+      headerName: "Client",
+      width: 150,
+    },
+    // {
+    //   field: "status",
+    //   headerName: "Status",
+    //   width: 160,
+    //   renderCell: (params) => {
+    //     return (
+    //       <div className={`cellWithStatus ${params.row.status}`}>
+    //         {params.row.status}
+    //       </div>
+    //     );
+
+    // },
+      
+    // },
+    {
+      field: "Location",
+      headerName: "Location",
+      width: 150,
+    },
+    {
+      field: "EOY",
+      headerName: "EOY",
+      width: 150,
+    },
+    {
+      field: "Expiry_date",
+      headerName: "Expiry Date",
+      width: 150,
+    },
+  ];
+
+  // export const jobRows = [{
+  //       id: 1,
+  //   Details: "React Developer",
+  //   Skills: "react react-rputer, next",
+  //   Client: "ReactDEV",
+  //   Locations: "BEngaluru",
+  //   EOY: "5",
+  //   Expiry_date: "2022-05-10",
+  // }]
+
+  export const vendorColumns = [
+    { field: "_id", headerName: "ID", width: 70 },
+    {
+      field: "POC",
+      headerName: "POC",
+      width: 230,
+      renderCell: (params) => {
+        return (
+          <div className="cellWithImg">
+            <img className="cellImg" src={params.row.User[0].profilePic 
+            || "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"} alt="avatar" />
+            {params.row.POC}
+           
+          </div>
+        );
+      },
+    },
+   
+    // {
+    //   field: "status",
+    //   headerName: "Status",
+    //   width: 160,
+    //   renderCell: (params) => {
+    //     return (
+    //       <div className={`cellWithStatus ${params.row.status}`}>
+    //         {params.row.status}
+    //       </div>
+    //     );
+
+    // },
+      
+    // },
+    
+     {
+      field: "User",
+      headerName: "Email",
+      width: 150,
+valueFormatter: ({ User }) => User[1].email 
+      
+    },
+  
+    {
+      field: "User",
+      headerName: "Phone Number",
+      width: 150,
+      valueFormatter: ({ User }) => User[0].mobile 
+    },
+    {
+      field: "User",
+      headerName: "Phone Number",
+      width: 150,
+      valueFormatter: ({ value }) => value[0].mobile 
+    },
+    {
+      field: "GST",
+      headerName: "GST",
+      width: 150,
+    },
+    {
+      field: "PAN",
+      headerName: "PAN ",
+      width: 150,
+    },
+    {
+      field: "Aadhar",
+      headerName: "Aadhar ",
+      width: 150,
+    },
+  ];
