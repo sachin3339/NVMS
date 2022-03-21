@@ -5,10 +5,11 @@ import Sidebar from "../../components/sidebar/SideBar";
 import Navbar from "../../components/navbar/NavBar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const New = ({ inputs, title , func , form , setForm}) => {
+const New = ({ inputs, title , func , form , setForm, nav}) => {
   const [file, setFile] = useState("");
-
+  let navigate = useNavigate();
   return (
     <div className="new">
       <Sidebar />
@@ -53,7 +54,10 @@ setForm(obj);
                 </div>
                 
               ))}
-              <button onClick={(e)=>func(e)}>Send</button>
+              <button onClick={(e)=>{func(e)
+              
+               navigate(nav);
+              }}>Submit</button>
             </form>
           </div>
         </div>

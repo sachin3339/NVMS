@@ -5,12 +5,14 @@ import Navbar from "../../components/navbar/NavBar"
 import JobDataTable from "../../components/datatable/JobDataTable"
 
 const JobList = () => {
+
+ 
   return (
     <div className="list">
       <Sidebar/>
       <div className="listContainer">
         <Navbar/>
-        <JobDataTable/>
+        <JobDataTable />
       </div>
     </div>
   )

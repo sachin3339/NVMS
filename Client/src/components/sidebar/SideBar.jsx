@@ -13,11 +13,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   let navigate = useNavigate()
+
+  //logout handler
   const logutHandler = (e) =>{
     localStorage.clear();
     navigate("/");
   }
-
+ 
   return (
     <div className="sidebar">
       <div className="top">

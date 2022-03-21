@@ -1,13 +1,13 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns,jobColumns, userRows ,jobRows } from "../../datatablesource";
+import { userColumns,jobColumns,vendorColumns, userRows ,jobRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios'
 
-const JobDataTable = () => {
+const VendorDataTable = () => {
   const [data, setData] = useState();
-
+  const [user, setUser] = useState();
    //store acces token
    const accesToken = localStorage.getItem('token');
    const apiUrl= 'http://localhost:5000'
@@ -19,27 +19,36 @@ const JobDataTable = () => {
        Authorization: `Bearer ${accesToken}`
      }
    })
- // gett all job requirement data
-useEffect(() => {
-  authAxios.get(`http://localhost:5000/requirement/all`)
-  .then((res)=>{
-    const jobData = res.data.post
-    setData(jobData)
-    console.log("joba component" )
-    console.log(jobData)
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
-}, [])
-
- 
   
+   useEffect(() => {
+    authAxios.get(`http://localhost:5000/superadmin/showvendors`)
+    .then((res)=>{
+      const vendorData = res.data.post;
+      let userArray = [];
+      for(let i=0;i<vendorData.length;i++){
+            //console.log(vendorData[i].User);
+            userArray.push(vendorData[i].User);
+    }
+      //const vendorDataUser = vendorData.User[0]
+      setData(vendorData)
+      setUser( userArray);
+      console.log("vendor component" );
+      //console.log(vendorDat);
+      
+      //console.log("user component", vendorDataUser )
+      // console.log(userdata)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }, [])
+ 
+//console.log(user);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-
+  
   const actionColumn = [
     {
       field: "action",
@@ -64,24 +73,19 @@ useEffect(() => {
   ];
   return (
     <div className="datatable">
-        <div className="datatableTitle">
-        <Link to="/job/newrequirement" className="link">
-          Add New Requirement
-        </Link>
-        
-        </div>
+      
         
       <div className="datatableTitle">
      
-      All Job Requirement List
+      Vendor List
       </div>
       <DataGrid
       getRowId={(row) => row._id}
         className="datagrid"
         rows={data}
-        columns={ jobColumns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
+        columns={ vendorColumns.concat(actionColumn)}
+        pageSize={12}
+        rowsPerPageOptions={[12]}
         checkboxSelection
       />
     
@@ -89,4 +93,4 @@ useEffect(() => {
   );
 };
 
-export default JobDataTable;
+export default VendorDataTable;
