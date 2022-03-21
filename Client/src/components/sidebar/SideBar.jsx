@@ -52,14 +52,7 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          {/* <p className="title">MAIN</p>
-          <li>
-            <DashboardIcon className="icon"  />
-            <Link to='/home' style={{ textDecoration: "none" }}>
-            <span>Dashboard</span>
-            </Link>
-            
-          </li> */}
+    
             <CheckforSuperAdmin/>,
           
           <p className="title">LISTS</p>
