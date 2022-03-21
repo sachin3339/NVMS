@@ -1,5 +1,5 @@
 import "./sidebar.scss";
-import React from 'react'
+import React, { useState } from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
@@ -13,11 +13,33 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   let navigate = useNavigate()
-
+  
   //logout handler
   const logutHandler = (e) =>{
     localStorage.clear();
     navigate("/");
+  }
+
+  function CheckforSuperAdmin(props) {
+    if (localStorage.getItem('role')==='Super Admin') {
+      return(<><p className="title">MAIN</p>
+      <li>
+        <DashboardIcon className="icon"  />
+        <Link to='/home' style={{ textDecoration: "none" }}>
+        <span>Admin Dashboard</span>
+        </Link>
+        
+      </li></>)
+    
+    }  else
+    return(<><p className="title">MAIN</p>
+    <li>
+      <DashboardIcon className="icon"  />
+      <Link to='/home' style={{ textDecoration: "none" }}>
+      <span>Vendor Dash</span>
+      </Link>
+      
+    </li></>)
   }
  
   return (
@@ -30,14 +52,16 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
+          {/* <p className="title">MAIN</p>
           <li>
             <DashboardIcon className="icon"  />
             <Link to='/home' style={{ textDecoration: "none" }}>
             <span>Dashboard</span>
             </Link>
             
-          </li>
+          </li> */}
+            <CheckforSuperAdmin/>,
+          
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>

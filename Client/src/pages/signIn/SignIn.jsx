@@ -4,12 +4,13 @@ import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@materia
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
+import jwt_decode from "jwt-decode";
 import axios from 'axios'
 
 
 
 const Login=()=>{
+
 
     const paperStyle={padding :20,height:'60vh',width:280, margin:"20px auto" , marginTop: '100px'}
     const avatarStyle={backgroundColor:'#1bbd7e'}
@@ -21,6 +22,9 @@ const Login=()=>{
     const [loginStatus , setLoginStatus] = useState(0)
     let navigate = useNavigate();
     let message = <p>Not Loged In</p>
+    const [error,setError]=useState("")
+   
+  
  
 
      const emailHandler =  (event) => {
@@ -44,6 +48,19 @@ const submitHandler = (e)=>{
     setLoginStatus(res.status)
         //getToken(res.data.token)
     localStorage.setItem('token', res.data.token);
+    let token =res.data.token
+    if(token)
+  { 
+    try{
+        var decode =  jwt_decode(token);
+        localStorage.setItem('role', decode.role);
+  console.log(localStorage.getItem('role'));
+}
+ catch(e){
+   setError(e.message)
+ }
+
+}
     const cat = localStorage.getItem('token');
 
     console.log(cat)
