@@ -90,7 +90,13 @@ const Sidebar = () => {
         <Link to="/job" style={{ textDecoration: "none" }}>
           <li>
             <StoreIcon className="icon" />
-            <span>Manage Job</span>
+            <span>Job Requirement List</span>
+          </li>
+        </Link>
+        <Link to="/candidate" style={{ textDecoration: "none" }}>
+          <li>
+            <StoreIcon className="icon" />
+            <span>Manage Candidates</span>
           </li>
         </Link>
     

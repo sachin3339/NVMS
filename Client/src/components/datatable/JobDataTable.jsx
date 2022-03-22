@@ -1,6 +1,6 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns,jobColumns, userRows ,jobRows } from "../../datatablesource";
+import { jobColumns  } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios'
@@ -62,31 +62,77 @@ useEffect(() => {
       },
     },
   ];
-  return (
-    <div className="datatable">
+
+function CheckforRole(props) {
+   if (localStorage.getItem('role')==='Admin') {
+    return(<>
+        <div className="datatable">
         <div className="datatableTitle">
         <Link to="/job/newrequirement" className="link">
           Add New Requirement
-        </Link>
+       </Link>
         
-        </div>
+       </div>
         
-      <div className="datatableTitle">
+       <div className="datatableTitle">
      
-      All Job Requirement List
-      </div>
-      <DataGrid
-      getRowId={(row) => row._id}
-        className="datagrid"
-        rows={data}
-        columns={ jobColumns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
-        checkboxSelection
-      />
+       All Job Requirement List
+       </div>
+       <DataGrid
+       getRowId={(row) => row._id}
+         className="datagrid"
+         rows={data}
+         columns={ jobColumns.concat(actionColumn)}
+         pageSize={9}
+         rowsPerPageOptions={[9]}
+         checkboxSelection
+       />
     
-    </div>
-  );
+     </div>
+    
+    </>)
+   
+  
+   }  else
+  {
+
+  //hello
+  return(<>
+   <div className="datatable">
+    <div className="datatableTitle">
+
+
+</div>
+
+<div className="datatableTitle">
+
+All Job Requirement List
+</div>
+<DataGrid
+getRowId={(row) => row._id}
+className="datagrid"
+rows={data}
+columns={ jobColumns.concat(actionColumn)}
+pageSize={9}
+rowsPerPageOptions={[9]}
+checkboxSelection
+/>
+
+</div> 
+   </>)
+ }
+
+
+}
+
+  return (
+       <>
+       <CheckforRole/>
+       </>
+ 
+ 
+   );
 };
 
+ 
 export default JobDataTable;

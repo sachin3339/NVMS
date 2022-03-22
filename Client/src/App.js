@@ -15,6 +15,7 @@ import Vendor from "./pages/forms/vendor/Vendor";
 import New from "./pages/new/New"
 
 import axios from 'axios' 
+import CandidateList from './pages/list/CnadidateList';
 
 function App() {
   //store acces token
@@ -195,6 +196,28 @@ function App() {
                 element={<New inputs={RequirementInputs} title="Add New Job Requrement"
                 form={jobForm}  setForm={(obj) => setJobForm(obj)}
                  func={(e) => jobFormSubmit(e)} nav={"/job"}/>}
+              />
+              <Route
+                path="newcandidate"
+                element={<New inputs={userInputs} title="Add New Candidate Profile"
+                form={subAdminForm}  setForm={(obj) => setSubAdminForm(obj)}
+                 func={(e) => subAdminFormSubmit(e)} nav={"/users"} />}
+              />
+            </Route>
+            <Route path="candidate">
+              <Route index element={<CandidateList />} />
+             
+              {/* <Route
+                path="newrequirement"
+                element={<New inputs={RequirementInputs} title="Add New Job Requrement"
+                form={jobForm}  setForm={(obj) => setJobForm(obj)}
+                 func={(e) => jobFormSubmit(e)} nav={"/job"}/>}
+              /> */}
+              <Route
+                path="newcandidate"
+                element={<New inputs={userInputs} title="Add New Candidate Profile"
+                form={subAdminForm}  setForm={(obj) => setSubAdminForm(obj)}
+                 func={(e) => subAdminFormSubmit(e)} nav={"/users"} />}
               />
             </Route>
           </Route>
