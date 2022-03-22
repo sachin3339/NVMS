@@ -21,29 +21,8 @@ const Sidebar = () => {
   }
 
   function CheckforSuperAdmin(props) {
-    if (localStorage.getItem('role')==='Super Admin') {
-      return(<><p className="title">MAIN</p>
-      <li>
-        <DashboardIcon className="icon"  />
-        <Link to='/home' style={{ textDecoration: "none" }}>
-        <span>Admin Dashboard</span>
-        </Link>
-        
-      </li></>)
-    
-    }  else
-    return(<><p className="title">MAIN</p>
-    <li>
-      <DashboardIcon className="icon"  />
-      <Link to='/home' style={{ textDecoration: "none" }}>
-      <span>Vendor Dash</span>
-      </Link>
-      
-    </li></>)
-  }
- 
-  return (
-    <div className="sidebar">
+    if (localStorage.getItem('role')==='Super Admin' ||localStorage.getItem('role')==='Admin') {
+      return(<> <div className="sidebar">
       <div className="top">
         <Link to="/home" style={{ textDecoration: "none" }}>
           <span className="logo">LOGO</span>
@@ -52,9 +31,14 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-    
-            <CheckforSuperAdmin/>,
-          
+          <p className="title">MAIN</p>
+          <li>
+            <DashboardIcon className="icon"  />
+            <Link to='/home' style={{ textDecoration: "none" }}>
+            <span>Dashboard</span>
+            </Link>
+            
+          </li>
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
@@ -81,7 +65,58 @@ const Sidebar = () => {
         </ul>
       </div>
    
+    </div></>)
+    
+    }  else
+    return(<> <div className="sidebar">
+    <div className="top">
+      <Link to="/home" style={{ textDecoration: "none" }}>
+        <span className="logo">LOGO</span>
+      </Link>
     </div>
+    <hr />
+    <div className="center">
+      <ul>
+        <p className="title">MAIN</p>
+        <li>
+          <DashboardIcon className="icon"  />
+          <Link to='/home' style={{ textDecoration: "none" }}>
+          <span>Dashboard</span>
+          </Link>
+          
+        </li>
+        <p className="title">LISTS</p>
+        
+        <Link to="/job" style={{ textDecoration: "none" }}>
+          <li>
+            <StoreIcon className="icon" />
+            <span>Manage Job</span>
+          </li>
+        </Link>
+    
+        <p className="title">USER</p>
+        <li>
+          <AccountCircleOutlinedIcon className="icon" />
+          <span>Profile</span>
+        </li>
+        <li>
+          <ExitToAppIcon className="icon" />
+          <span onClick={logutHandler}>Logout</span>
+        </li>
+      </ul>
+    </div>
+ 
+  </div></>)
+  }
+  // function CheckforSuperAdmin(props) {
+
+  // }
+ 
+  return (
+    <>
+    <CheckforSuperAdmin />
+    </>
+  
   );
 };
 
