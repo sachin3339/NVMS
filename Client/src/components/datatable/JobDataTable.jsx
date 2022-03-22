@@ -40,6 +40,10 @@ useEffect(() => {
     setData(data.filter((item) => item.id !== id));
   };
 
+
+function CheckforRole(props) {
+   if (localStorage.getItem('role')==='Admin') {
+     
   const actionColumn = [
     {
       field: "action",
@@ -51,6 +55,7 @@ useEffect(() => {
             <Link to="/users/test" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
+            
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
@@ -62,9 +67,6 @@ useEffect(() => {
       },
     },
   ];
-
-function CheckforRole(props) {
-   if (localStorage.getItem('role')==='Admin') {
     return(<>
         <div className="datatable">
         <div className="datatableTitle">
@@ -95,9 +97,29 @@ function CheckforRole(props) {
   
    }  else
   {
-
+    
+  const actionColumn = [
+    {
+      field: "action",
+      headerName: "Action",
+      width: 200,
+      renderCell: (params) => {
+        return (
+          <div className="cellAction">
+            <Link to="/users/test" style={{ textDecoration: "none" }}>
+              <div className="viewButton">View</div>
+            </Link>
+            
+           
+          </div>
+        );
+      },
+    },
+  ];
+      
   //hello
   return(<>
+  
    <div className="datatable">
     <div className="datatableTitle">
 

@@ -5,7 +5,7 @@ import List from "./pages/list/List";
 
 import { BrowserRouter, Routes, Route ,useNavigate, Navigate} from "react-router-dom";
 
-import {userInputs , vendorInputs, RequirementInputs} from './formSource'
+import {userInputs , vendorInputs, RequirementInputs,CandidateProfileInputs} from './formSource'
 
 import JobList from "./pages/list/JobList";
 import Login from "./pages/signIn/SignIn";
@@ -33,8 +33,8 @@ function App() {
 //  let navigate = useNavigate(); 
   const [jobForm ,setJobForm]= useState({1:'' , 2:'',  4: '' , 5: '', 6:'', 7:'',8:'',9:''})
   const [formData, setFormData]=useState(0)
- 
-  const [subAdminForm ,setSubAdminForm]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '',6:''})
+  const [adcandidateForm ,setAdCandidateForm]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '',6:''})
+  const [subAdminForm ,setSubAdminForm]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '',6:'', 7:'',8:''})
   const [vendorForm, setvendorForm ]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '', 6:'', 7:'',8:'',9:'',10:''})
 
   const [jobListData , setJobListData]=useState([])
@@ -78,10 +78,18 @@ function App() {
     e.preventDefault()
       console.log(subAdminForm)
     let subadminFormData ={
-      username: subAdminForm[1],
-      email: subAdminForm[2],
-      role: subAdminForm[3],
-      password:subAdminForm[6],
+      EMP_ID:subAdminForm[5],
+      User:{
+        username: subAdminForm[1],
+        email: subAdminForm[2],
+        role: subAdminForm[3],
+        mobile:subAdminForm[8],
+        password:subAdminForm[6],
+
+      },
+   
+      GST:subAdminForm[7],
+      Reporting_Manager:subAdminForm[4]
      
     }
 
@@ -139,6 +147,41 @@ function App() {
       // return <Navigate to="/home" />
      }
      
+  }
+
+  ).catch(err =>{
+      console.log(err)
+  })
+
+ }
+
+ //adding candidate 
+ const addingCandidateFormSubmit = (e) =>{
+    
+  e.preventDefault()
+  console.log(adcandidateForm)
+  let candidateForm ={
+   Name: adcandidateForm[1],
+      email: adcandidateForm[2],
+      Notice_Period: adcandidateForm[3],
+      Current_CTC:adcandidateForm[4],
+      Expected_CTC:adcandidateForm[5],
+      CV:adcandidateForm[6]
+  }
+
+  authAxios.post(`http://localhost:5000/candidate/submit`,candidateForm)
+
+  .then((res)=>{
+    setAdCandidateForm(res.status)
+   console.log(res)
+   if(res.status===200){
+    
+   
+    console.log(res.status)
+    console.log(adcandidateForm)
+    setTimeout(function() {setAdCandidateForm({1:'' , 2:'', 3:'' , 4: '', 5: '', 6:''})}, 2000)  
+    // return <Navigate to="/home" />
+   }
   }
 
   ).catch(err =>{
@@ -215,7 +258,7 @@ function App() {
               /> */}
               <Route
                 path="newcandidate"
-                element={<New inputs={userInputs} title="Add New Candidate Profile"
+                element={<New inputs={CandidateProfileInputs} title="Add New Candidate Profile"
                 form={subAdminForm}  setForm={(obj) => setSubAdminForm(obj)}
                  func={(e) => subAdminFormSubmit(e)} nav={"/users"} />}
               />

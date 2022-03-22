@@ -1,13 +1,13 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns,jobColumns,vendorColumns, userRows ,jobRows } from "../../datatablesource";
+import { userColumns,jobColumns,vendorColumns, candidatesColumns ,jobRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios'
 
 const  CandidateDataTable = () => {
   const [data, setData] = useState();
-  const [user, setUser] = useState();
+//   const [candidatedata, setCandiateDate] = useState();
    //store acces token
    const accesToken = localStorage.getItem('token');
    const apiUrl= 'http://localhost:5000'
@@ -21,19 +21,19 @@ const  CandidateDataTable = () => {
    })
   
    useEffect(() => {
-    authAxios.get(`http://localhost:5000/superadmin/showvendors`)
+    authAxios.get(`http://localhost:5000/candidate/all`)
     .then((res)=>{
-      const vendorData = res.data.post;
-      let userArray = [];
-      for(let i=0;i<vendorData.length;i++){
+      const candidateData = res.data.post;
+    //   let userArray = [];
+    //   for(let i=0;i<vendorData.length;i++){
             //console.log(vendorData[i].User);
-            userArray.push(vendorData[i].User);
-    }
+            // userArray.push(vendorData[i].User);
+    // }
       //const vendorDataUser = vendorData.User[0]
-      setData(vendorData)
-      setUser( userArray);
-      console.log("vendor component" );
-      //console.log(vendorDat);
+      setData(candidateData)
+    //   setUser( userArray);
+      console.log("candidate component" );
+      console.log(candidateData);
       
       
       //console.log("user component", vendorDataUser )
@@ -75,7 +75,7 @@ const  CandidateDataTable = () => {
   return (
     <div className="datatable">
        <div className="datatableTitle">
-        <Link to="/users/newsubadmin" className="link">
+        <Link to="/candidate/newcandidate" className="link">
           Add New Candidate
         </Link>
        
@@ -89,7 +89,7 @@ const  CandidateDataTable = () => {
       getRowId={(row) => row._id}
         className="datagrid"
         rows={data}
-        columns={ vendorColumns.concat(actionColumn)}
+        columns={ candidatesColumns.concat(actionColumn)}
         pageSize={12}
         rowsPerPageOptions={[12]}
         checkboxSelection

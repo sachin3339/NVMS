@@ -24,14 +24,15 @@ const VendorDataTable = () => {
     authAxios.get(`http://localhost:5000/superadmin/showvendors`)
     .then((res)=>{
       const vendorData = res.data.post;
-      let userArray = [];
-      for(let i=0;i<vendorData.length;i++){
+      // let userArray = [];
+      // for(let i=0;i<vendorData.length;i++){
             //console.log(vendorData[i].User);
-            userArray.push(vendorData[i].User);
-    }
+            // userArray.push(vendorData[i].User);
+    // }
       //const vendorDataUser = vendorData.User[0]
       setData(vendorData)
-      setUser( userArray);
+      console.log(vendorData)
+      // setUser( userArray);
       console.log("vendor component" );
       //console.log(vendorDat);
       
