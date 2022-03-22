@@ -6,7 +6,7 @@ import { useState , useEffect} from "react";
 import axios from 'axios'
 import VendorDataTable from "./VendorDataTable";
 
-const Datatable = () => {
+export  const Datatable = () => {
   const [data, setData] = useState();
   
 
@@ -21,32 +21,7 @@ const Datatable = () => {
        Authorization: `Bearer ${accesToken}`
      }
    })
-  //gett all job requirement data
-useEffect(() => {
-  // let isMounted = true;
-  authAxios.get(`http://localhost:5000/superadmin/showadmins`)
-  .then((res)=>{
-    // if (isMounted) {
-    const adminData = res.data.post
-    setData(adminData)
-    console.log("admin component" )
-    console.log(adminData)
-    
-    // return () => { isMounted = false };
-
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
-  
-}, [])
-
- //gett all job requirement data
-
-
-
-
-  const handleDelete = (_id) => {
+   const handleDelete = (_id) => {
     setData(data.filter((item) => item._id !== _id));
   };
 
@@ -72,8 +47,31 @@ useEffect(() => {
       },
     },
   ];
-  return (
-    <div className="datatable">
+  //gett all job requirement data
+useEffect(() => {
+  // let isMounted = true;
+  authAxios.get(`http://localhost:5000/superadmin/showadmins`)
+  .then((res)=>{
+    // if (isMounted) {
+    const adminData = res.data.post
+    setData(adminData)
+    console.log("admin component" )
+    console.log(adminData)
+    
+    // return () => { isMounted = false };
+
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+  
+}, [])
+
+
+function CheckforRole(props) {
+  if (localStorage.getItem('role')==='Super Admin') {
+    return(<>
+      <div className="datatable">
         <div className="datatableTitle">
         <Link to="/users/newsubadmin" className="link">
           Add New Sub-Admin
@@ -96,22 +94,40 @@ useEffect(() => {
         rowsPerPageOptions={[9]}
         checkboxSelection
       />
-      {/* <div className="datatableTitle">
-      Vendor List
-       
-      </div> */}
-       {/* <DataGrid
-         getRowId={(row) => row._id}
-        className="datagrid"
-        rows={vendorData}
-        columns={vendorColumns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
-        checkboxSelection
-      /> */}
+   
       <VendorDataTable/>
     </div>
+    
+    </>)
+   
+  
+  }  else
+  if(localStorage.getItem('role')==='Admin'){
+
+  
+  return(<>
+    <div className="datatable">
+        <div className="datatableTitle">
+       
+        <Link to="/users/newvendor" className="link">
+        Add New Vendor 
+        </Link>
+        </div>
+         <VendorDataTable/>
+    </div>
+  </>)
+}
+
+
+
+
+  return (
+       <>
+       <CheckforRole/>
+       </>
+ 
+ 
   );
 };
 
-export default Datatable;
+}
