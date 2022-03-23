@@ -86,7 +86,7 @@ const  CandidateDataTable = () => {
       Candidate List
       </div>
       <DataGrid
-      getRowId={(row) => row._id}
+       getRowId={(row) => row._id}
         className="datagrid"
         rows={data}
         columns={ candidatesColumns.concat(actionColumn)}

@@ -259,8 +259,8 @@ function App() {
               <Route
                 path="newcandidate"
                 element={<New inputs={CandidateProfileInputs} title="Add New Candidate Profile"
-                form={subAdminForm}  setForm={(obj) => setSubAdminForm(obj)}
-                 func={(e) => subAdminFormSubmit(e)} nav={"/users"} />}
+                form={adcandidateForm}  setForm={(obj) => setSubAdminForm(obj)}
+                 func={(e) => addingCandidateFormSubmit(e)} nav={"/users"} />}
               />
             </Route>
           </Route>
