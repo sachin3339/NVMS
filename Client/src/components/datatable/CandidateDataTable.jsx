@@ -1,13 +1,13 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns,jobColumns,vendorColumns, userRows ,jobRows } from "../../datatablesource";
+import { userColumns,jobColumns,vendorColumns, candidatesColumns ,jobRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios'
 
-const VendorDataTable = () => {
+const  CandidateDataTable = () => {
   const [data, setData] = useState();
-  const [user, setUser] = useState();
+//   const [candidatedata, setCandiateDate] = useState();
    //store acces token
    const accesToken = localStorage.getItem('token');
    const apiUrl= 'http://localhost:5000'
@@ -19,42 +19,32 @@ const VendorDataTable = () => {
        Authorization: `Bearer ${accesToken}`
      }
    })
+
+   
   
    useEffect(() => {
-    authAxios.get(`http://localhost:5000/superadmin/showvendors`)
+    authAxios.get(`http://localhost:5000/candidate/all`)
     .then((res)=>{
-      const vendorData = res.data.post;
-      console.log(res.data.post)
-      // let userArray = [];
-      // for(let i=0;i<vendorData.length;i++){
+      const candidateData = res.data.post
+      console.log(candidateData)
+      setData(candidateData)
+    //   let userArray = [];
+    //   for(let i=0;i<vendorData.length;i++){
             //console.log(vendorData[i].User);
             // userArray.push(vendorData[i].User);
     // }
-        
-let userArray = []
-for(let i = 0; i< vendorData.length; i++){
-userArray.push(vendorData[i]['User'])
-delete vendorData[i]['User']
-vendorData[i]['id']=i+1
-
-}
-// console.log(userArray)
-// console.log(adminData);
-
-// let completeuserArray = []
-for(let i = 0 ; i < vendorData.length; i++){
-  vendorData[i] = {...vendorData[i],...userArray[i]}
-
-}
-
-
-
       //const vendorDataUser = vendorData.User[0]
-      setData(vendorData)
-      // console.log(vendorData)
-      // setUser( userArray);
-      console.log("vendor component" );
-      //console.log(vendorDat);
+    //   setData(candidateData)
+    //   setUser( userArray);
+    //   console.log("candidate component" );
+    //             let userArray = []
+    //    for(let i = 0; i< candidateData.length; i++){
+    //         userArray.push(candidateData[i]['User'])
+    //         delete candidateData[i]['User']
+
+    //    }
+    //    console.log(userArray)
+    //   console.log(candidateData);
       
       
       //console.log("user component", vendorDataUser )
@@ -95,17 +85,22 @@ for(let i = 0 ; i < vendorData.length; i++){
   ];
   return (
     <div className="datatable">
-      
+       <div className="datatableTitle">
+        <Link to="/candidate/newcandidate" className="link">
+          Add New Candidate
+        </Link>
+       
+        </div>
         
       <div className="datatableTitle">
      
-      Vendor List
+      Candidate List
       </div>
       <DataGrid
-      getRowId={(row) => row.id}
+       getRowId={(row) => row._id}
         className="datagrid"
         rows={data}
-        columns={ vendorColumns.concat(actionColumn)}
+        columns={ candidatesColumns.concat(actionColumn)}
         pageSize={12}
         rowsPerPageOptions={[12]}
         checkboxSelection
@@ -115,4 +110,4 @@ for(let i = 0 ; i < vendorData.length; i++){
   );
 };
 
-export default VendorDataTable;
+export default CandidateDataTable;
