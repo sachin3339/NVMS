@@ -19,21 +19,32 @@ const  CandidateDataTable = () => {
        Authorization: `Bearer ${accesToken}`
      }
    })
+
+   
   
    useEffect(() => {
     authAxios.get(`http://localhost:5000/candidate/all`)
     .then((res)=>{
-      const candidateData = res.data.post;
+      const candidateData = res.data.post
+      console.log(candidateData)
+      setData(candidateData)
     //   let userArray = [];
     //   for(let i=0;i<vendorData.length;i++){
             //console.log(vendorData[i].User);
             // userArray.push(vendorData[i].User);
     // }
       //const vendorDataUser = vendorData.User[0]
-      setData(candidateData)
+    //   setData(candidateData)
     //   setUser( userArray);
-      console.log("candidate component" );
-      console.log(candidateData);
+    //   console.log("candidate component" );
+    //             let userArray = []
+    //    for(let i = 0; i< candidateData.length; i++){
+    //         userArray.push(candidateData[i]['User'])
+    //         delete candidateData[i]['User']
+
+    //    }
+    //    console.log(userArray)
+    //   console.log(candidateData);
       
       
       //console.log("user component", vendorDataUser )

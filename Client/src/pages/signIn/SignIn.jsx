@@ -54,7 +54,10 @@ const submitHandler = (e)=>{
     try{
         var decode =  jwt_decode(token);
         localStorage.setItem('role', decode.role);
+        localStorage.setItem('logedUser', decode.username);
+
   console.log(localStorage.getItem('role'));
+  console.log(localStorage.getItem('logedUser'));
 }
  catch(e){
    setError(e.message)

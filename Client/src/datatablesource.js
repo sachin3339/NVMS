@@ -1,5 +1,5 @@
 export const userColumns = [
-    { field: "_id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70 },
     {
       field: "username",
       headerName: "User",
@@ -20,11 +20,11 @@ export const userColumns = [
       width: 230,
     },
   
-    // {
-    //   field: "phone",
-    //   headerName: "Phone Number",
-    //   width: 150,
-    // },
+    {
+      field: "mobile",
+      headerName: "Phone Number",
+      width: 150,
+    },
     // {
     //   field: "status",
     //   headerName: "Status",
@@ -104,7 +104,7 @@ export const userColumns = [
   
 
   export const vendorColumns = [
-    { field: "_id", headerName: "ID", width: 70 },
+    { field: "id", headerName: "ID", width: 70 },
     {
       field: "POC",
       headerName: "POC",
@@ -115,24 +115,24 @@ export const userColumns = [
 
     
      {
-      field: "User",
+      field: "email",
       headerName: "Email",
       width: 150,
-      valueFormatter: ({ value }) => value.email 
+  
       
     },
   
     {
-      field: "User",
+      field: "role",
       headerName: "Role",
       width: 150,
-      valueFormatter: ({ value }) => value.role 
+      // valueFormatter: ({ value }) => value.role 
     },
     {
-      field: "User",
+      field: "mobile",
       headerName: "Phone Number",
       width: 150,
-      valueFormatter: ({ value }) => value.mobile 
+      // valueFormatter: ({ value }) => value.mobile 
     },
     {
       field: "GST",

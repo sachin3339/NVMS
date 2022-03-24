@@ -24,22 +24,22 @@ const Sidebar = () => {
     if (localStorage.getItem('role')==='Super Admin' ||localStorage.getItem('role')==='Admin') {
       return(<> <div className="sidebar">
       <div className="top">
-        <Link to="/home" style={{ textDecoration: "none" }}>
+        <Link to="/users" style={{ textDecoration: "none" }}>
           <span className="logo">LOGO</span>
         </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
-          <li>
+          {/* <p className="title">MAIN</p> */}
+          {/* <li>
             <DashboardIcon className="icon"  />
             <Link to='/home' style={{ textDecoration: "none" }}>
             <span>Dashboard</span>
             </Link>
             
-          </li>
-          <p className="title">LISTS</p>
+          </li> */}
+          <p className="title">MAIN</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
@@ -70,22 +70,22 @@ const Sidebar = () => {
     }  else
     return(<> <div className="sidebar">
     <div className="top">
-      <Link to="/home" style={{ textDecoration: "none" }}>
+      <Link to="/job" style={{ textDecoration: "none" }}>
         <span className="logo">LOGO</span>
       </Link>
     </div>
     <hr />
     <div className="center">
       <ul>
-        <p className="title">MAIN</p>
+        {/* <p className="title">MAIN</p>
         <li>
           <DashboardIcon className="icon"  />
           <Link to='/home' style={{ textDecoration: "none" }}>
           <span>Dashboard</span>
           </Link>
           
-        </li>
-        <p className="title">LISTS</p>
+        </li> */}
+        <p className="title">MAIN</p>
         
         <Link to="/job" style={{ textDecoration: "none" }}>
           <li>

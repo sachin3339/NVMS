@@ -24,14 +24,34 @@ const VendorDataTable = () => {
     authAxios.get(`http://localhost:5000/superadmin/showvendors`)
     .then((res)=>{
       const vendorData = res.data.post;
+      console.log(res.data.post)
       // let userArray = [];
       // for(let i=0;i<vendorData.length;i++){
             //console.log(vendorData[i].User);
             // userArray.push(vendorData[i].User);
     // }
+        
+let userArray = []
+for(let i = 0; i< vendorData.length; i++){
+userArray.push(vendorData[i]['User'])
+delete vendorData[i]['User']
+vendorData[i]['id']=i+1
+
+}
+// console.log(userArray)
+// console.log(adminData);
+
+// let completeuserArray = []
+for(let i = 0 ; i < vendorData.length; i++){
+  vendorData[i] = {...vendorData[i],...userArray[i]}
+
+}
+
+
+
       //const vendorDataUser = vendorData.User[0]
       setData(vendorData)
-      console.log(vendorData)
+      // console.log(vendorData)
       // setUser( userArray);
       console.log("vendor component" );
       //console.log(vendorDat);
@@ -82,7 +102,7 @@ const VendorDataTable = () => {
       Vendor List
       </div>
       <DataGrid
-      getRowId={(row) => row._id}
+      getRowId={(row) => row.id}
         className="datagrid"
         rows={data}
         columns={ vendorColumns.concat(actionColumn)}

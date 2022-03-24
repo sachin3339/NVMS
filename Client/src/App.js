@@ -82,12 +82,12 @@ function App() {
       User:{
         username: subAdminForm[1],
         email: subAdminForm[2],
-        role: subAdminForm[3],
+        role: 'Admin',
         mobile:subAdminForm[8],
         password:subAdminForm[6],
 
       },
-   
+      Created_by: localStorage.getItem('logedUser'), 
       GST:subAdminForm[7],
       Reporting_Manager:subAdminForm[4]
      
@@ -122,7 +122,7 @@ function App() {
       User: {
         username:vendorForm[6],
         email:vendorForm[7],
-        role:vendorForm[8],
+        role:"Vendor",
         mobile:vendorForm[9],
         password:vendorForm[10]
       } ,
@@ -240,12 +240,12 @@ function App() {
                 form={jobForm}  setForm={(obj) => setJobForm(obj)}
                  func={(e) => jobFormSubmit(e)} nav={"/job"}/>}
               />
-              <Route
+              {/* <Route
                 path="newcandidate"
                 element={<New inputs={userInputs} title="Add New Candidate Profile"
                 form={subAdminForm}  setForm={(obj) => setSubAdminForm(obj)}
                  func={(e) => subAdminFormSubmit(e)} nav={"/users"} />}
-              />
+              /> */}
             </Route>
             <Route path="candidate">
               <Route index element={<CandidateList />} />
@@ -259,7 +259,7 @@ function App() {
               <Route
                 path="newcandidate"
                 element={<New inputs={CandidateProfileInputs} title="Add New Candidate Profile"
-                form={adcandidateForm}  setForm={(obj) => setSubAdminForm(obj)}
+                form={adcandidateForm}  setForm={(obj) => setAdCandidateForm(obj)}
                  func={(e) => addingCandidateFormSubmit(e)} nav={"/users"} />}
               />
             </Route>

@@ -12,12 +12,12 @@ export const userInputs = [
       type: "mail",
       placeholder: "Enter your Email",
     },
-    {
-      id: 3,
-      label: "Role",
-      type: "text",
-      placeholder: "Enter your Role",
-    },
+    // {
+    //   id: 3,
+    //   label: "Role",
+    //   type: "text",
+    //   placeholder: "Enter your Role",
+    // },
     {
       id: 4,
       label: "Reporting Manager",
@@ -150,12 +150,12 @@ export const userInputs = [
       type: "email",
       placeholder: "Enter Your email",
     },
-    {
-      id: 8,
-      label: "Role",
-      type: "text",
-      placeholder: "Enter your role",
-    },
+    // {
+    //   id: 8,
+    //   label: "Role",
+    //   type: "text",
+    //   placeholder: "Enter your role",
+    // },
     {
       id: 9,
       label: "Mobile Number",
@@ -183,7 +183,7 @@ export const userInputs = [
     {
       id: 2,
       label: "Email",
-      type: "email",
+      type: "text",
       placeholder: "Enter Email",
     },
     // {
