@@ -16,11 +16,13 @@ import New from "./pages/new/New"
 
 import axios from 'axios' 
 import CandidateList from './pages/list/CnadidateList';
+import UploadDocument from './components/UploadDocument/UploadDocument';
+import ApprovedDocument from './components/SubAdminApprovedDocument/ApprovedDocument';
 
 function App() {
   //store acces token
   const accesToken = localStorage.getItem('token');
-  const apiUrl= 'http://localhost:5000'
+  const apiUrl= 'http://13.233.150.147:5000'
 
   const authAxios = axios.create({
     baseURL : apiUrl,
@@ -35,7 +37,7 @@ function App() {
   const [formData, setFormData]=useState(0)
   const [adcandidateForm ,setAdCandidateForm]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '',6:''})
   const [subAdminForm ,setSubAdminForm]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '',6:'', 7:'',8:''})
-  const [vendorForm, setvendorForm ]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '', 6:'', 7:'',8:'',9:'',10:''})
+  const [vendorForm, setvendorForm ]= useState({1:'' , 2:'', 3:'' , 4: '' , 5: '', 6:'', 7:'',8:'',9:'',10:'',11:''})
 
   const [jobListData , setJobListData]=useState([])
 //job form data handler and submi
@@ -53,7 +55,7 @@ function App() {
       
     }
 
-    authAxios.post(`http://localhost:5000/requirement/create`,jobFormData)
+    authAxios.post(`http://13.233.150.147:5000/requirement/create`,jobFormData)
     .then((res)=>{
       setFormData(res.status)
      console.log(res)
@@ -93,7 +95,7 @@ function App() {
      
     }
 
-    authAxios.post('http://localhost:5000/superadmin/onboardadmin',subadminFormData)
+    authAxios.post('http://13.233.150.147:5000/superadmin/onboardadmin',subadminFormData)
     .then((res)=>{
       setFormData(res.status)
      console.log(res)
@@ -130,10 +132,10 @@ function App() {
       PAN: vendorForm[3],
       CNAME: vendorForm[1],
       Aadhar:vendorForm[4],
-
+      Document:vendorForm[11]
     }
 
-    authAxios.post(`http://localhost:5000/superadmin/onboarvendor`,vendorFormData)
+    authAxios.post(`http://13.233.150.147:5000/superadmin/onboarvendor`,vendorFormData)
 
     .then((res)=>{
       setFormData(res.status)
@@ -169,7 +171,7 @@ function App() {
       CV:adcandidateForm[6]
   }
 
-  authAxios.post(`http://localhost:5000/candidate/submit`,candidateForm)
+  authAxios.post(`http://13.233.150.147:5000/candidate/submit`,candidateForm)
 
   .then((res)=>{
     setAdCandidateForm(res.status)
@@ -231,6 +233,10 @@ function App() {
                  func={(e) => subAdminFormSubmit(e)} nav={"/users"} />}
               />
             </Route>
+
+            <Route path="/DocumentDetails" index element={<ApprovedDocument/>} />
+
+
             <Route path="job">
               <Route index element={<JobList />} />
              
@@ -263,6 +269,7 @@ function App() {
                  func={(e) => addingCandidateFormSubmit(e)} nav={"/users"} />}
               />
             </Route>
+            <Route path='/vendor/document' element={ <UploadDocument/>}/>
           </Route>
     
         </Routes>

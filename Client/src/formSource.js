@@ -112,43 +112,44 @@ export const userInputs = [
       id: 1,
       label: "Company Name",
       type: "text",
-      placeholder: "Enter your Company Name",
+      placeholder: "Enter Company Name",
     },
     {
       id: 2,
       label: "Company GST Number",
       type: "gst",
-      placeholder: "Enter your Company GST Number ",
+      placeholder: " GST Number ",
     },
     {
       id: 3,
       label: "Company Pan Number",
       type: "pan",
-      placeholder: "Enter your Company Pan Number",
+      placeholder: " Pan Number",
     },
     {
       id: 4,
       label: "Company Aadhar Number",
       type: "Aadhar",
-      placeholder: "Enter Your Company Aadhar Number ",
+      placeholder: " Aadhar Number ",
     },
     {
       id: 5,
       label: "Point Of Contact",
       type: "text",
-      placeholder: "Enter Your name",
+      placeholder: "Contact Person",
     },
     {
       id: 6,
       label: "User Name",
       type: "text",
-      placeholder: "Enter Your User name",
+      placeholder: " User name",
     },
     {
       id: 7,
       label: "Email",
       type: "email",
-      placeholder: "Enter Your email",
+      placeholder: " Email",
+      
     },
     // {
     //   id: 8,
@@ -160,7 +161,7 @@ export const userInputs = [
       id: 9,
       label: "Mobile Number",
       type: "tel",
-      placeholder: "Enter Your Mobile Number",
+      placeholder: "Mobile Number",
     },
     {
       id: 10,
@@ -168,6 +169,14 @@ export const userInputs = [
       type: "password",
       placeholder: "Enter Your Password",
     },
+    // {
+    //   id: 11,
+    //   className: "FileUpload",
+    //   label: "Document Upload",
+    //   type: "file",
+    //   // placeholder: "",
+    // },
+
   ];
 
   //candidate profile inputs

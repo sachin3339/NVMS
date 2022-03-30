@@ -10,7 +10,7 @@ const  CandidateDataTable = () => {
 //   const [candidatedata, setCandiateDate] = useState();
    //store acces token
    const accesToken = localStorage.getItem('token');
-   const apiUrl= 'http://localhost:5000'
+   const apiUrl= 'http://13.233.150.147:5000'
    console.log(accesToken ,"job component")
  
    const authAxios = axios.create({
@@ -23,7 +23,7 @@ const  CandidateDataTable = () => {
    
   
    useEffect(() => {
-    authAxios.get(`http://localhost:5000/candidate/all`)
+    authAxios.get(`http://13.233.150.147:5000/candidate/all`)
     .then((res)=>{
       const candidateData = res.data.post
       console.log(candidateData)

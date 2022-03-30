@@ -191,5 +191,6 @@ export const userColumns = [
       headerName: "registered ID ",
       width: 150,
     },
+    
    
   ];

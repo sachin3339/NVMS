@@ -2,7 +2,7 @@ import "./sidebar.scss";
 import React, { useState } from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 import StoreIcon from "@mui/icons-material/Store";
 
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
@@ -52,12 +52,19 @@ const Sidebar = () => {
               <span>Manage Job</span>
             </li>
           </Link>
+          <Link to="/DocumentDetails" style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span>Document list</span>
+            </li>
+          </Link>
       
           <p className="title">USER</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
+          
           <li>
             <ExitToAppIcon className="icon" />
             <span onClick={logutHandler}>Logout</span>
@@ -105,6 +112,13 @@ const Sidebar = () => {
           <AccountCircleOutlinedIcon className="icon" />
           <span>Profile</span>
         </li>
+        <li>
+          <Link to='/vendor/document' style={{ textDecoration: "none" }}>
+          <UploadFileIcon className="icon" />
+          <span>Documents</span>
+          </Link>
+        </li>
+        
         <li>
           <ExitToAppIcon className="icon" />
           <span onClick={logutHandler}>Logout</span>
