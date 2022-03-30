@@ -10,18 +10,18 @@ function UploadDocument() {
   const token = localStorage.getItem("token");
   //  console.log(token);
 
-  const [esic, setEsic] = useState();
-  const [pfallotment, setPfallotment] = useState();
-  const [pfchallanECR, setPFchallanECR] = useState();
-  const [esicchallan, setEsicchallan] = useState();
-  const [PTRegistration, setPTRegistration] = useState();
-  const [CompanyAudited, setCompanyAudited] = useState();
-  const [Form5A, setForm5A] = useState();
-  const [Shopestablishmentcertificate, setShopestablishmentcertificate] = useState();
-  const [DSC, setDSC] = useState();
-  const [Incorporation, setIncorporation] = useState();
-  const [GST, setGST] = useState();
-  const [LWF, setLWF] = useState();
+  const [esic, setEsic] = useState(null);
+  const [pfallotment, setPfallotment] = useState(null);
+  const [pfchallanECR, setPFchallanECR] = useState(null);
+  const [esicchallan, setEsicchallan] = useState(null);
+  const [PTRegistration, setPTRegistration] = useState(null);
+  const [CompanyAudited, setCompanyAudited] = useState(null);
+  const [Form5A, setForm5A] = useState(null);
+  const [Shopestablishmentcertificate, setShopestablishmentcertificate] = useState(null);
+  const [DSC, setDSC] = useState(null);
+  const [Incorporation, setIncorporation] = useState(null);
+  const [GST, setGST] = useState(null);
+  const [LWF, setLWF] = useState(null);
   
   // const [email, setEmail] = useState('')
   // const [password, setPassword] = useState('')
@@ -49,6 +49,7 @@ function UploadDocument() {
   // };
  
   const esiHandler = (event) => {
+    
     setEsic(event.target.files[0]);
     console.log(esic);
   };
@@ -108,35 +109,62 @@ function UploadDocument() {
     console.log(LWF);
   };
 
-  let formSubmitHandler = (event) => {
+  const send = async(event) => {
     event.preventDefault();
-    const formData = {
-      
-      ESIC_CAL: esic,
-      PF_CHALLAN: pfchallanECR,
-      ESIC_CHALLAN: esicchallan,
-      PT_RC: PTRegistration,
-      AUDIT_SHEET: CompanyAudited,
-      FORM_5A: Form5A,
-      ESTABLISHMENT_CA: Shopestablishmentcertificate,
-      DSC: DSC,
-      COI: Incorporation,
-      GST_CERT: GST,
-      LWF: LWF,
-      PF_CAL: pfallotment,
-    };
-    console.log(formData);
-    axios.patch(`http://localhost:5000/superadmin/updatevendor/${email}`, formData, {
-      headers: {
-        "Content-Type": "text/plain",
-        "Authorization": `bearer ${token}`
-      }
-    })
-      .then((res) => {
-        let { data } = res;
-        console.log(data);
-      }).catch((err) => console.log(err))
+    const data = new FormData();
+    
+    data.append("ESIC_CAL", esic);
+    data.append("PF_CHALLAN", pfchallanECR);
+    data.append("ESIC_CHALLAN", esicchallan);
+    data.append("PT_RC", PTRegistration);
+    data.append("AUDIT_SHEET", CompanyAudited);
+    data.append("FORM_5A", Form5A);
+    data.append("ESTABLISHMENT_CA", Shopestablishmentcertificate);
+    data.append("DSC", DSC);
+    data.append("COI", Incorporation);
+    data.append("GST_CERT", GST);
+    data.append("LWF", LWF);
+    data.append("PF_CAL", pfallotment);
+
+
+    axios.patch(`http://localhost:5000/superadmin/updatevendor/${email}`, data,{
+          headers: {
+            "Content-type": "multipart/form-data",
+            "Authorization": `bearer ${token}`
+          }
+        })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
+  // let formSubmitHandler = (event) => {
+  //   event.preventDefault();
+  //   const formData = {
+      
+  //     ESIC_CAL: esic,
+  //     PF_CHALLAN: pfchallanECR,
+  //     ESIC_CHALLAN: esicchallan,
+  //     PT_RC: PTRegistration,
+  //     AUDIT_SHEET: CompanyAudited,
+  //     FORM_5A: Form5A,
+  //     ESTABLISHMENT_CA: Shopestablishmentcertificate,
+  //     DSC: DSC,
+  //     COI: Incorporation,
+  //     GST_CERT: GST,
+  //     LWF: LWF,
+  //     PF_CAL: pfallotment,
+  //   };
+  //   console.log(formData);
+  //   axios.patch(`http://localhost:5000/superadmin/updatevendor/${email}`, formData, {
+  //     headers: {
+  //       "Content-Type": "text/plain",
+  //       "Authorization": `bearer ${token}`
+  //     }
+  //   })
+  //     .then((res) => {
+  //       let { data } = res;
+  //       console.log(data);
+  //     }).catch((err) => console.log(err))
+  // };
   return (
     <>
       <div className="new">
@@ -145,7 +173,7 @@ function UploadDocument() {
           <Navbar />
           <div className="right">
             <div className="formInput">
-              <form onSubmit={formSubmitHandler}>
+              <form onSubmit={send}>
                 <div className="container">
                   <div className="top">
                     <h1>Upload All The Documents </h1>
