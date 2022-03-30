@@ -8,16 +8,15 @@ import { Link } from "react-router-dom";
 import { useState , useEffect} from "react";
 import axios from 'axios'
 import VendorDataTable from "./VendorDataTable";
-import UploadDocument from "../UploadDocument/UploadDocument";
 
-export  const Datatable = () => {
+export  const DummyForadminHome = () => {
   const [data, setData] = useState();
   
 
   
    //store acces token
    const accesToken = localStorage.getItem('token');
-   const apiUrl= 'http://13.233.150.147:5000'
+   const apiUrl= 'http://localhost:5000'
  
    const authAxios = axios.create({
      baseURL : apiUrl,
@@ -54,7 +53,7 @@ export  const Datatable = () => {
   //gett all Admin data
 useEffect(() => {
   
-  authAxios.get(`http://13.233.150.147:5000/superadmin/showadmins`)
+  authAxios.get(`http://localhost:5000/superadmin/showadmins`)
   .then((res)=>{
 
     const adminData = res.data.post
@@ -143,9 +142,9 @@ function CheckforRole(props) {
     return(<>
       <div className="datatable">
         <div className="datatableTitle">
-        <Link to="/users/newsubadmin" className="link">
+        {/* <Link to="/users/newsubadmin" className="link">
           Add New Sub-Admin
-        </Link>
+        </Link> */}
         {/* <Link to="/users/newvendor" className="link">
         Add New Vendor 
         </Link> */}
@@ -164,8 +163,8 @@ function CheckforRole(props) {
         rowsPerPageOptions={[9]}
         checkboxSelection
       />
+   
       <VendorDataTable/>
-  
     </div>
     
     </>)
@@ -179,13 +178,12 @@ function CheckforRole(props) {
     <div className="datatable">
         <div className="datatableTitle">
        
-        <Link to="/users/newvendor" className="link">
+        {/* <Link to="/users/newvendor" className="link">
         Add New Vendor 
-        </Link>
+        </Link> */}
         </div>
          <VendorDataTable/>
     </div>
-    
   </>)
 }
 

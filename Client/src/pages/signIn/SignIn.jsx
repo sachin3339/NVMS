@@ -43,7 +43,7 @@ const submitHandler = (e)=>{
       password:password
   };
    
-   axios.post('http://localhost:5000/user/login',formData)
+   axios.post('http://13.233.150.147:5000/user/login',formData)
    .then((res)=>{
     setLoginStatus(res.status)
         //getToken(res.data.token)
@@ -54,11 +54,19 @@ const submitHandler = (e)=>{
     try{
         var decode =  jwt_decode(token);
         localStorage.setItem('role', decode.role);
+        localStorage.setItem('id', decode._id);
         localStorage.setItem('logedUser', decode.username);
+        // decoding vendor details
+        localStorage.setItem('email', decode.email);
+        // localStorage.setItem('mobile', decode.mobile);
+        
 
-  console.log(localStorage.getItem('role'));
-  console.log(localStorage.getItem('logedUser'));
-}
+      console.log(localStorage.getItem('role'));
+      console.log(localStorage.getItem('logedUser'));
+      console.log(localStorage.getItem('email'));
+      console.log(localStorage.getItem('mobile'));
+
+   }
  catch(e){
    setError(e.message)
  }

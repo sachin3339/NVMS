@@ -10,7 +10,7 @@ const VendorDataTable = () => {
   const [user, setUser] = useState();
    //store acces token
    const accesToken = localStorage.getItem('token');
-   const apiUrl= 'http://localhost:5000'
+   const apiUrl= 'http://13.233.150.147:5000'
    console.log(accesToken ,"job component")
  
    const authAxios = axios.create({
@@ -21,7 +21,7 @@ const VendorDataTable = () => {
    })
   
    useEffect(() => {
-    authAxios.get(`http://localhost:5000/superadmin/showvendors`)
+    authAxios.get(`http://13.233.150.147:5000/superadmin/showvendors`)
     .then((res)=>{
       const vendorData = res.data.post;
       console.log(res.data.post)

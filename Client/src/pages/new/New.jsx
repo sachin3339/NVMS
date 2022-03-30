@@ -78,7 +78,7 @@ const New = ({ inputs, title , func , form , setForm, nav}) => {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type} placeholder={input.placeholder} value={form[input.id]} onChange={(e) => {
+                  <input type={input.type} className={input.className} placeholder={input.placeholder} value={form[input.id]} onChange={(e) => {
                  let obj = {...form};
                  obj[input.id] = e.target.value;
                   setForm(obj);
