@@ -169,13 +169,13 @@ export const userInputs = [
       type: "password",
       placeholder: "Enter Your Password",
     },
-    // {
-    //   id: 11,
-    //   className: "FileUpload",
-    //   label: "Document Upload",
-    //   type: "file",
-    //   // placeholder: "",
-    // },
+    {
+      id: 11,
+      className: "FileUpload",
+      label: "Document Upload",
+      type: "file",
+      // placeholder: "",
+    },
 
   ];
 

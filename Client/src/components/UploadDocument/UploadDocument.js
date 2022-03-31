@@ -22,31 +22,6 @@ function UploadDocument() {
   const [Incorporation, setIncorporation] = useState(null);
   const [GST, setGST] = useState(null);
   const [LWF, setLWF] = useState(null);
-  
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
-  // const accesToken = localStorage.getItem("token");
-  // const apiUrl = "http://localhost:5000";
-
-  // const authAxios = axios.create({
-  //   baseURL: apiUrl,
-  //   headers: {
-  //     Authorization: `Bearer ${accesToken}`,
-  //   },
-  // });
-  // console.log(accesToken);
-
-  // const [formData, setFormData] = useState(0)
-
-  //input handler
-  // const emailHandler = (event) => {
-  //   setEmail(event.target.value);
-  //   console.log(email);
-  // };
-  // const passwordHandler = (event) => {
-  //   setEmail(event.target.value);
-  //   console.log(password);
-  // };
  
   const esiHandler = (event) => {
     
@@ -136,35 +111,7 @@ function UploadDocument() {
       .then(res => console.log(res))
       .catch(err => console.log(err));
   };
-  // let formSubmitHandler = (event) => {
-  //   event.preventDefault();
-  //   const formData = {
-      
-  //     ESIC_CAL: esic,
-  //     PF_CHALLAN: pfchallanECR,
-  //     ESIC_CHALLAN: esicchallan,
-  //     PT_RC: PTRegistration,
-  //     AUDIT_SHEET: CompanyAudited,
-  //     FORM_5A: Form5A,
-  //     ESTABLISHMENT_CA: Shopestablishmentcertificate,
-  //     DSC: DSC,
-  //     COI: Incorporation,
-  //     GST_CERT: GST,
-  //     LWF: LWF,
-  //     PF_CAL: pfallotment,
-  //   };
-  //   console.log(formData);
-  //   axios.patch(`http://localhost:5000/superadmin/updatevendor/${email}`, formData, {
-  //     headers: {
-  //       "Content-Type": "text/plain",
-  //       "Authorization": `bearer ${token}`
-  //     }
-  //   })
-  //     .then((res) => {
-  //       let { data } = res;
-  //       console.log(data);
-  //     }).catch((err) => console.log(err))
-  // };
+  
   return (
     <>
       <div className="new">
@@ -268,95 +215,6 @@ function UploadDocument() {
                       name="PF_CAL"
                       onChange={pfallotmentHandler} />
                   </div>
-                  {/*  
-         <div class="container">
-  <div class="row align-items-start">
-    <div class="col">
-    <label>ESIC code allotment letter</label>
-                    <input
-                      type="file"
-                      name="picture"
-                      id="exampleFormControlFile1"
-                      onChange={esiHandler}
-                    />
-    </div>
-    <div class="col">
-                <lable>The last month PF challan with the ECR</lable>
-                    <input
-                      type="file"
-                      name="picture"
-                      onChange={pfchallanECRHandler}
-                    />
-    </div>
-    <div class="col">
-                 <lable>Paid ESIC challan with the contribution History</lable>
-                    <input
-                      type="file"
-                      name="picture"
-                      onChange={esicchallanHandler}
-                    />
-    </div>
-  </div>
-  <div class="row align-items-center">
-    <div class="col">
-                  <lable>PT Registration certificate (if applicable)</lable>
-                    <input
-                      type="file"
-                      name="picture"
-                      onChange={PTRegistrationHandler}
-                    />
-    </div>
-    <div class="col">
-               <lable>Company Audited Balance sheet for last 3 years</lable>
-                    <input
-                      type="file"
-                      name="picture"
-                      onChange={CompanyAuditedHandler}
-                    />
-    </div>
-    <div class="col">
-    <lable>Form 5A under PF act</lable>
-                    <input
-                      type="file"
-                      name="picture"
-                      onChange={Form5AHandler}
-                    />
-    </div>
-  </div>
-  <div class="row align-items-end">
-    <div class="col">
-    <lable>Shop and establishment certificate</lable>
-                    <input
-                      type="file"
-                      onChange={ShopestablishmentcertificateHandler}
-                    />
-    </div>
-    <div class="col">
-                <lable>DSC (Digital Signature Certificate)</lable>
-                    <input type="file" onChange={DSCHandler} />
-    </div>
-    <div class="col">
-               <lable>Certificate of Incorporation</lable>
-                    <input type="file" onChange={IncorporationHandler} />
-    </div>
-
-  </div>
-
-  <div class="row align-items-start">
-    <div class="col">
-              <lable>GST Certificate</lable>
-                    <input type="file" onChange={GSTHandler} />
-    </div>
-    <div class="col">
-           <lable> LWF for the state</lable>
-                    <input type="file" onChange={LWFHandler} />
-    </div>
-    <div class="col">
-           <lable> PF code allotment letter</lable>
-                    <input type="file" onChange={pfallotmentHandler} />
-    </div> 
-  </div> */}
-                  {/* </div> */}
 
                   <button>Submit</button>
                 </div>
@@ -370,6 +228,3 @@ function UploadDocument() {
 }
 
 export default UploadDocument;
-
-
-

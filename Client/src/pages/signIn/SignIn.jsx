@@ -6,6 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import jwt_decode from "jwt-decode";
 import axios from 'axios'
+import DevelopmentUrl from '../../data/api';
 
 
 
@@ -43,7 +44,7 @@ const submitHandler = (e)=>{
       password:password
   };
    
-   axios.post('http://13.233.150.147:5000/user/login',formData)
+   axios.post(DevelopmentUrl+'/user/login',formData)
    .then((res)=>{
     setLoginStatus(res.status)
         //getToken(res.data.token)
@@ -54,11 +55,10 @@ const submitHandler = (e)=>{
     try{
         var decode =  jwt_decode(token);
         localStorage.setItem('role', decode.role);
-        localStorage.setItem('id', decode._id);
         localStorage.setItem('logedUser', decode.username);
         // decoding vendor details
         localStorage.setItem('email', decode.email);
-        // localStorage.setItem('mobile', decode.mobile);
+        localStorage.setItem('mobile', decode.mobile);
         
 
       console.log(localStorage.getItem('role'));

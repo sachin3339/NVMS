@@ -94,7 +94,8 @@ const New = ({ inputs, title , func , form , setForm, nav}) => {
               }}>Submit</button>
           
             </form>
-          </div>
+          </div>  
+          {/* till herer */}
         </div>
       </div>
     </div>
