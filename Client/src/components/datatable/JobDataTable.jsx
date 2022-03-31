@@ -4,13 +4,15 @@ import { jobColumns  } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios'
+import DevelopmentUrl from "../../data/api";
+import JobTable from "./JobTable";
 
 const JobDataTable = () => {
   const [data, setData] = useState();
 
    //store acces token
    const accesToken = localStorage.getItem('token');
-   const apiUrl= 'http://13.233.150.147:5000'
+   const apiUrl= DevelopmentUrl
    console.log(accesToken ,"job component")
  
    const authAxios = axios.create({
@@ -20,53 +22,23 @@ const JobDataTable = () => {
      }
    })
  // gett all job requirement data
-useEffect(() => {
-  authAxios.get(`http://13.233.150.147:5000/requirement/all`)
-  .then((res)=>{
-    const jobData = res.data.post
-    setData(jobData)
-    console.log("joba component" )
-    console.log(jobData)
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
-}, [])
-
- 
-  
-
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
-
+// useEffect(() => {
+//   authAxios.get(DevelopmentUrl+`/requirement/all`)
+//   .then((res)=>{
+//     const jobData = res.data.post
+//     setData(jobData)
+//     console.log("joba component" )
+//     console.log(jobData)
+//   })
+//   .catch((err)=>{
+//     console.log(err)
+//   })
+// }, [])
 
 function CheckforRole(props) {
    if (localStorage.getItem('role')==='Admin') {
      
-  const actionColumn = [
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
-            </Link>
-            
-            <div
-              className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
-            >
-              Delete
-            </div>
-          </div>
-        );
-      },
-    },
-  ];
+  
     return(<>
         <div className="datatable">
         <div className="datatableTitle">
@@ -76,19 +48,8 @@ function CheckforRole(props) {
         
        </div>
         
-       <div className="datatableTitle">
-     
-       All Job Requirement List
-       </div>
-       <DataGrid
-       getRowId={(row) => row._id}
-         className="datagrid"
-         rows={data}
-         columns={ jobColumns.concat(actionColumn)}
-         pageSize={9}
-         rowsPerPageOptions={[9]}
-         checkboxSelection
-       />
+       
+      <JobTable/>
     
      </div>
     
@@ -98,24 +59,7 @@ function CheckforRole(props) {
    }  else
   {
     
-  const actionColumn = [
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
-            </Link>
-            
-           
-          </div>
-        );
-      },
-    },
-  ];
+ 
       
   //hello
   return(<>
@@ -126,19 +70,8 @@ function CheckforRole(props) {
 
 </div>
 
-<div className="datatableTitle">
 
-All Job Requirement List
-</div>
-<DataGrid
-getRowId={(row) => row._id}
-className="datagrid"
-rows={data}
-columns={ jobColumns.concat(actionColumn)}
-pageSize={9}
-rowsPerPageOptions={[9]}
-checkboxSelection
-/>
+<JobTable />
 
 </div> 
    </>)

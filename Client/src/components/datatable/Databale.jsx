@@ -2,22 +2,19 @@
 
 
 import "./datatable.scss";
-import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows ,vendorColumns} from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState , useEffect} from "react";
 import axios from 'axios'
 import VendorDataTable from "./VendorDataTable";
-import UploadDocument from "../UploadDocument/UploadDocument";
+import DevelopmentUrl from "../../data/api";
+import AdminTable from "./AdminTable ";
 
 export  const Datatable = () => {
   const [data, setData] = useState();
   
-
-  
    //store acces token
    const accesToken = localStorage.getItem('token');
-   const apiUrl= 'http://13.233.150.147:5000'
+   const apiUrl= DevelopmentUrl
  
    const authAxios = axios.create({
      baseURL : apiUrl,
@@ -54,7 +51,7 @@ export  const Datatable = () => {
   //gett all Admin data
 useEffect(() => {
   
-  authAxios.get(`http://13.233.150.147:5000/superadmin/showadmins`)
+  authAxios.get(DevelopmentUrl+`/superadmin/showadmins`)
   .then((res)=>{
 
     const adminData = res.data.post
@@ -146,36 +143,15 @@ function CheckforRole(props) {
         <Link to="/users/newsubadmin" className="link">
           Add New Sub-Admin
         </Link>
-        {/* <Link to="/users/newvendor" className="link">
-        Add New Vendor 
-        </Link> */}
         </div>
-        
-      <div className="datatableTitle">
-     
-      Sub-Admin List
-      </div>
-      <DataGrid
-        getRowId={(row) => row.id}
-        className="datagrid"
-        rows={data}
-        columns={userColumns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
-        checkboxSelection
-      />
-      <VendorDataTable/>
-  
-    </div>
-    
-    </>)
-   
-  
+     <AdminTable/>
+    <VendorDataTable/>
+   </div>
+     </>)
   }  else
+  // if login is done by admin 
   if(localStorage.getItem('role')==='Admin'){
-
-  //hello
-  return(<>
+    return(<>
     <div className="datatable">
         <div className="datatableTitle">
        
@@ -188,10 +164,6 @@ function CheckforRole(props) {
     
   </>)
 }
-
-
-
-
   
 };
 

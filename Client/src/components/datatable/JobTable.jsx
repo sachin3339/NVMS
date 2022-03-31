@@ -1,25 +1,22 @@
-
-
-
 import React, { useEffect, useState } from 'react'
+
+import axios from 'axios';
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 import Pagination from '../pagination/Pagination'
+import DevelopmentUrl from '../../data/api';
 import './Table.css'
-import DevelopmentUrl from '../../data/api'
 
 
-const VendorDataTable = () => {
+const JobTable = () => {
 
 
   const [data , setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
-  
-  
+  const [postsPerPage] = useState(3);
+
   //store acces token
-   const accesToken = localStorage.getItem('token');
+  const accesToken = localStorage.getItem('token');
   const apiUrl= DevelopmentUrl
    console.log(accesToken ,"vendor  component")
 
@@ -30,9 +27,9 @@ const VendorDataTable = () => {
     }
   })
 
-  //getting ALL vwndor data to table
+  
   useEffect(()=>{
-    authAxios.get(DevelopmentUrl + `/superadmin/showvendors`)
+    authAxios.get(DevelopmentUrl +"/requirement/all")
     .then((res)=>{
     setData( res.data.post)
       console.log( res.data.post)
@@ -56,36 +53,37 @@ const VendorDataTable = () => {
 // console.log(id)
 } 
 
-//pagination part
+
 // get current posts  for pagination
 const indexOfLastPost = currentPage * postsPerPage
 const indexOfFirstPost = indexOfLastPost - postsPerPage
+
 const currentPosts = data.slice(indexOfFirstPost , indexOfLastPost)
 
 // Change page
 const paginate = pageNumber => setCurrentPage(pageNumber);
-//end of pagination part 
+
+// void Link function(props)
+// {
+//     return <a href={props.link}></a>
+// }
   return (
     <>
-    <div className="tablecontainer">
     <div className="datatableTitle">
-     
-     Vendor List
+     Job requirement List
      </div>
     <div className="tablestyle">
 
 
-    <table className="table  table-striped table-hover">
+    <table className="table table-hover">
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">POC</th>
-        <th scope="col" >Status</th>
-        <th scope="col">Email</th>
-        <th scope="col">Mobile</th>
-        <th scope="col">GST</th>
-        <th scope="col">PAN</th>
-        <th scope="col">Aadhar</th>
+        <th scope="col">Job</th>
+        <th scope='col'>Skills</th>
+        <th scope="col">Client</th>
+        <th scope="col">EOY</th>
+        <th scope='col'>Expiry Date</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -97,31 +95,23 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
         
               <th scope="row">{index+1}</th>
               <td key={index}>
-               {item.POC}
+               {item.Details}
             </td>
-              
-                    <td className={`cellWithStatus ${item.status}`}>
-                      {item.status}
-                    </td>
-                    
                     <td >
-                      {item.User.email}
+                      {item.Skills}
                     </td>
                     <td >
-                      {item.User.mobile}
+                      {item.Client}
+                    </td>     
+                    <td>
+                        {item.EOY}
                     </td>
-            <td >
-               {item.GST}
-            </td>
-            <td >
-               {item.PAN}
-            </td>
-            <td>
-               {item.Aadhar}
-            </td>
+                    <td>
+                        {item.Expiry_date}
+                    </td>
             <td>
             <div className="cellAction">
-            <Link to="/vendor/viewdocument" style={{ textDecoration: "none" }}>
+            <Link to="/users/test" style={{ textDecoration: "none" }}>
              <div className="viewButton">View</div>
             </Link>
             <div
@@ -131,7 +121,6 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
                Delete
             </div>
            </div>
-              
               {/* <button className='' onClick={deleteHandler(item._id)}>Delete</button> */}
             </td>
                </tr>  )
@@ -141,15 +130,13 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
   </table>
   
     </div>
-    {/* calling pagination component from pagination component   */}
     <Pagination
         postsPerPage={postsPerPage}
         totalPosts={data.length}
         paginate={paginate}
       />
-      </div>
   </>
   )
 }
 
-export default VendorDataTable
+export default JobTable

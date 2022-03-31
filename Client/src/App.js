@@ -17,12 +17,13 @@ import New from "./pages/new/New"
 import axios from 'axios' 
 import CandidateList from './pages/list/CnadidateList';
 import UploadDocument from './components/UploadDocument/UploadDocument';
-import ApprovedDocument from './components/SubAdminApprovedDocument/ApprovedDocument';
+// import ApprovedDocument from './components/subadminApprovedDocument/ApprovedDocument';
+import DevelopmentUrl from './data/api';
 
 function App() {
   //store acces token
   const accesToken = localStorage.getItem('token');
-  const apiUrl= 'http://13.233.150.147:5000'
+  const apiUrl= DevelopmentUrl
 
   const authAxios = axios.create({
     baseURL : apiUrl,
@@ -55,7 +56,7 @@ function App() {
       
     }
 
-    authAxios.post(`http://13.233.150.147:5000/requirement/create`,jobFormData)
+    authAxios.post(DevelopmentUrl +`/requirement/create`,jobFormData)
     .then((res)=>{
       setFormData(res.status)
      console.log(res)
@@ -95,7 +96,7 @@ function App() {
      
     }
 
-    authAxios.post('http://13.233.150.147:5000/superadmin/onboardadmin',subadminFormData)
+    authAxios.post(DevelopmentUrl +'/superadmin/onboardadmin',subadminFormData)
     .then((res)=>{
       setFormData(res.status)
      console.log(res)
@@ -135,7 +136,7 @@ function App() {
       Document:vendorForm[11]
     }
 
-    authAxios.post(`http://13.233.150.147:5000/superadmin/onboarvendor`,vendorFormData)
+    authAxios.post(DevelopmentUrl + '/superadmin/onboarvendor',vendorFormData)
 
     .then((res)=>{
       setFormData(res.status)
@@ -171,7 +172,7 @@ function App() {
       CV:adcandidateForm[6]
   }
 
-  authAxios.post(`http://13.233.150.147:5000/candidate/submit`,candidateForm)
+  authAxios.post(DevelopmentUrl +`/candidate/submit`,candidateForm)
 
   .then((res)=>{
     setAdCandidateForm(res.status)
@@ -192,20 +193,7 @@ function App() {
 
  }
 
-//gett all job requirement data
-// useEffect(() => {
-//   authAxios.get(`http://localhost:5000/requirement/all`)
-//   .then((res)=>{
-//     const jobData = res.data
-//     setJobListData(jobData)
-//     console.log(jobData)
-//   })
-//   .catch((err)=>{
-//     console.log(err)
-//   })
 
-  
-// }, [])
 
     
 
@@ -234,7 +222,7 @@ function App() {
               />
             </Route>
 
-            <Route path="/DocumentDetails" index element={<ApprovedDocument/>} />
+            {/* <Route path="/DocumentDetails" index element={<ApprovedDocument/>} /> */}
 
 
             <Route path="job">
@@ -268,10 +256,11 @@ function App() {
                 form={adcandidateForm}  setForm={(obj) => setAdCandidateForm(obj)}
                  func={(e) => addingCandidateFormSubmit(e)} nav={"/users"} />}
               />
+              
             </Route>
             <Route path='/vendor/document' element={ <UploadDocument/>}/>
           </Route>
-    
+          <Route path='/vendor/uploaddocument' element={ <UploadDocument/>}/>
         </Routes>
       </BrowserRouter>
       

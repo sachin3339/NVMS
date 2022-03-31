@@ -21,6 +21,7 @@ const Sidebar = () => {
   }
 
   function CheckforSuperAdmin(props) {
+    //side bar for admin login or sub admin login means 
     if (localStorage.getItem('role')==='Super Admin' ||localStorage.getItem('role')==='Admin') {
       return(<> <div className="sidebar">
       <div className="top">
@@ -31,14 +32,7 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          {/* <p className="title">MAIN</p> */}
-          {/* <li>
-            <DashboardIcon className="icon"  />
-            <Link to='/home' style={{ textDecoration: "none" }}>
-            <span>Dashboard</span>
-            </Link>
-            
-          </li> */}
+       
           <p className="title">MAIN</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
@@ -52,12 +46,12 @@ const Sidebar = () => {
               <span>Manage Job</span>
             </li>
           </Link>
-          <Link to="/DocumentDetails" style={{ textDecoration: "none" }}>
+          {/* <Link to="/DocumentDetails" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
               <span>Document list</span>
             </li>
-          </Link>
+          </Link> */}
       
           <p className="title">USER</p>
           <li>
@@ -75,6 +69,7 @@ const Sidebar = () => {
     </div></>)
     
     }  else
+    //side bar for vndor login means 
     return(<> <div className="sidebar">
     <div className="top">
       <Link to="/job" style={{ textDecoration: "none" }}>
@@ -84,14 +79,6 @@ const Sidebar = () => {
     <hr />
     <div className="center">
       <ul>
-        {/* <p className="title">MAIN</p>
-        <li>
-          <DashboardIcon className="icon"  />
-          <Link to='/home' style={{ textDecoration: "none" }}>
-          <span>Dashboard</span>
-          </Link>
-          
-        </li> */}
         <p className="title">MAIN</p>
         
         <Link to="/job" style={{ textDecoration: "none" }}>
@@ -113,12 +100,12 @@ const Sidebar = () => {
           <span>Profile</span>
         </li>
         <li>
-          <Link to='/vendor/document' style={{ textDecoration: "none" }}>
+          <Link to='/vendor/uploaddocument' style={{ textDecoration: "none" }}>
           <UploadFileIcon className="icon" />
           <span>Documents</span>
           </Link>
         </li>
-        
+     
         <li>
           <ExitToAppIcon className="icon" />
           <span onClick={logutHandler}>Logout</span>
