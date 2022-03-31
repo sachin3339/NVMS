@@ -60,7 +60,7 @@ export default function CollapsibleTable() {
       }
     })
       .then(res => {
-        setDataRow(res.data.result);
+        setDataRow(res.data);
         //console.log(res.data.rows);
       })
       .catch(err => console.error("YO YOU GOT AN ERROR IN AXIOS ", err))
@@ -125,10 +125,10 @@ export default function CollapsibleTable() {
                         <EditIcon onClick={handleClickOpen}/>
                       </span>
                       <span className="widgetLgDate">
-                      <button>Approve</button>
+                      <button style={{width:"90px", borderRadius:"10px", marginLeft:"5px", height:"30px", paddingTop:"-10px"}}>Approve</button>
                       </span>
                     </td>
-                    <td className="widgetLgDate">{(name.ESIC_CAL !== 'Yet to be uploaded' ? <Link to ="/">View</Link>:name.ESIC_CAL)} </td>
+                    <td className="widgetLgDate">{(name.ESIC_CAL !== 'Yet to be uploaded' ? <Link to ="http://localhost:5000/name.ESIC_CAL">View</Link>:name.ESIC_CAL)} </td>
                      <td className="widgetLgDate">{(name.PF_CAL !== 'Yet to be uploaded' ? <Link to ="/">View</Link>:name.PF_CAL)}</td> 
                     <td className="widgetLgDate">{(name.PF_CHALLAN !=='Yet to be uploaded' ? <Link to ="/">View</Link>:name.PF_CHALLAN)}</td>
                     <td className="widgetLgDate">{(name.ESIC_CHALLAN !=='Yet to be uploaded' ? <Link to ="/">View</Link>:name.ESIC_CHALLAN) }</td>
