@@ -1,6 +1,5 @@
 import "./sidebar.scss";
 import React, { useState } from "react";
-import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import StoreIcon from "@mui/icons-material/Store";
