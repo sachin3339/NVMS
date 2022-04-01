@@ -1,17 +1,12 @@
-
-
-
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
 import Pagination from '../pagination/Pagination'
 import './Table.css'
 import DevelopmentUrl from '../../data/api'
 
 
 const VendorDataTable = () => {
-
 
   const [data , setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -92,6 +87,7 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
     <tbody>
      
           {currentPosts.map((item, index)=>{
+            let status= item.IsApproved;
             return (
               <tr>
         
@@ -100,8 +96,8 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
                {item.POC}
             </td>
               
-                    <td className={`cellWithStatus ${item.status}`}>
-                      {item.status}
+                    <td >
+                      {(status === true)?"Approved":"Disapproved"}
                     </td>
                     
                     <td >
@@ -121,7 +117,20 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
             </td>
             <td>
             <div className="cellAction">
-            <Link to="/vendor/viewdocument" style={{ textDecoration: "none" }}>
+            <Link to="/vendor/viewdocument" style={{ textDecoration: "none" }}
+             state={{ from: [item._id, item.AUDIT_SHEET, 
+              item.COI,
+              item.DSC,item.ESIC_CAL,
+              item.ESIC_CHALLAN,
+              item.ESTABLISHMENT_CA,
+              item.FORM_5A,
+              item.GST_CERT,
+              item.LWF, 
+              item.PF_CAL, 
+              item.PF_CHALLAN, 
+              item.PT_RC ]      
+            }}
+            >
              <div className="viewButton">View</div>
             </Link>
             <div

@@ -63,10 +63,6 @@ const currentPosts = data.slice(indexOfFirstPost , indexOfLastPost)
 // Change page
 const paginate = pageNumber => setCurrentPage(pageNumber);
 
-// void Link function(props)
-// {
-//     return <a href={props.link}></a>
-// }
   return (
     <>
     <div className="datatableTitle">

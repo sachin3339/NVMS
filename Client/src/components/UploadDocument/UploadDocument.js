@@ -3,6 +3,7 @@ import "./upload.css";
 import Sidebar from "../sidebar/SideBar";
 import Navbar from "../navbar/NavBar";
 import axios from "axios";
+import DevelopmentUrl from "../../data/api";
 
 function UploadDocument() {
 
@@ -102,7 +103,7 @@ function UploadDocument() {
     data.append("PF_CAL", pfallotment);
 
 
-    axios.patch(`http://localhost:5000/superadmin/updatevendor/${email}`, data,{
+    axios.patch(DevelopmentUrl+`/superadmin/updatevendor/${email}`, data,{
           headers: {
             "Content-type": "multipart/form-data",
             "Authorization": `bearer ${token}`

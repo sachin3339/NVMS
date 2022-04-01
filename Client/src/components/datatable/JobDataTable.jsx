@@ -1,6 +1,4 @@
 import "./datatable.scss";
-import { DataGrid } from "@mui/x-data-grid";
-import { jobColumns  } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios'
@@ -21,19 +19,6 @@ const JobDataTable = () => {
        Authorization: `Bearer ${accesToken}`
      }
    })
- // gett all job requirement data
-// useEffect(() => {
-//   authAxios.get(DevelopmentUrl+`/requirement/all`)
-//   .then((res)=>{
-//     const jobData = res.data.post
-//     setData(jobData)
-//     console.log("joba component" )
-//     console.log(jobData)
-//   })
-//   .catch((err)=>{
-//     console.log(err)
-//   })
-// }, [])
 
 function CheckforRole(props) {
    if (localStorage.getItem('role')==='Admin') {

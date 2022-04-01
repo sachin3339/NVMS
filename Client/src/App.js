@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import Home from "./pages/home/Home";
 
 import List from "./pages/list/List";
@@ -9,16 +9,15 @@ import {userInputs , vendorInputs, RequirementInputs,CandidateProfileInputs} fro
 
 import JobList from "./pages/list/JobList";
 import Login from "./pages/signIn/SignIn";
-// import JobForm from "./pages/forms/jobform/JobForm";
-import SubAdmin from "./pages/forms/subadmin/SubAdmin";
-import Vendor from "./pages/forms/vendor/Vendor";
+
+
 import New from "./pages/new/New"
 
 import axios from 'axios' 
 import CandidateList from './pages/list/CnadidateList';
 import UploadDocument from './components/UploadDocument/UploadDocument';
-// import ApprovedDocument from './components/subadminApprovedDocument/ApprovedDocument';
 import DevelopmentUrl from './data/api';
+import ViewDocumentList from './pages/list/ViewDocumentList';
 
 function App() {
   //store acces token
@@ -261,6 +260,7 @@ function App() {
             <Route path='/vendor/document' element={ <UploadDocument/>}/>
           </Route>
           <Route path='/vendor/uploaddocument' element={ <UploadDocument/>}/>
+          <Route path='/vendor/viewdocument' element={ <ViewDocumentList/>}/>
         </Routes>
       </BrowserRouter>
       

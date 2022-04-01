@@ -12,12 +12,6 @@ export const userInputs = [
       type: "mail",
       placeholder: "Enter your Email",
     },
-    // {
-    //   id: 3,
-    //   label: "Role",
-    //   type: "text",
-    //   placeholder: "Enter your Role",
-    // },
     {
       id: 4,
       label: "Reporting Manager",
@@ -66,12 +60,7 @@ export const userInputs = [
       type: "text",
       placeholder: "Major Skills",
     },
-    // {
-    //   id: 3,
-    //   label: "Details",
-    //   type: "text",
-    //   placeholder: "Details",
-    // },
+    
     {
       id: 3,
       label: "Client",
@@ -151,12 +140,7 @@ export const userInputs = [
       placeholder: " Email",
       
     },
-    // {
-    //   id: 8,
-    //   label: "Role",
-    //   type: "text",
-    //   placeholder: "Enter your role",
-    // },
+  
     {
       id: 9,
       label: "Mobile Number",
@@ -169,13 +153,7 @@ export const userInputs = [
       type: "password",
       placeholder: "Enter Your Password",
     },
-    {
-      id: 11,
-      className: "FileUpload",
-      label: "Document Upload",
-      type: "file",
-      // placeholder: "",
-    },
+   
 
   ];
 
@@ -195,12 +173,7 @@ export const userInputs = [
       type: "text",
       placeholder: "Enter Email",
     },
-    // {
-    //   id: 3,
-    //   label: "Details",
-    //   type: "text",
-    //   placeholder: "Details",
-    // },
+    
     {
       id: 3,
       label: "Notice Period",
