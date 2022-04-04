@@ -7,7 +7,8 @@ import DevelopmentUrl from "../../data/api";
 
 function UploadDocument() {
 
-  const email = localStorage.getItem("email");
+  const id = localStorage.getItem("id");
+  console.log(id)
   const token = localStorage.getItem("token");
   //  console.log(token);
 
@@ -102,8 +103,9 @@ function UploadDocument() {
     data.append("LWF", LWF);
     data.append("PF_CAL", pfallotment);
 
+    alert("Documents uploaded successfully");
 
-    axios.patch(DevelopmentUrl+`/superadmin/updatevendor/${email}`, data,{
+    axios.patch(`${DevelopmentUrl}/superadmin/updatevendor/${id}`, data,{
           headers: {
             "Content-type": "multipart/form-data",
             "Authorization": `bearer ${token}`

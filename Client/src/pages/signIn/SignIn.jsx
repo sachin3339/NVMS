@@ -58,13 +58,11 @@ const submitHandler = (e)=>{
         localStorage.setItem('logedUser', decode.username);
         // decoding vendor details
         localStorage.setItem('email', decode.email);
-        localStorage.setItem('mobile', decode.mobile);
-        
+        localStorage.setItem('id', decode._id);
 
       console.log(localStorage.getItem('role'));
       console.log(localStorage.getItem('logedUser'));
-      console.log(localStorage.getItem('email'));
-      console.log(localStorage.getItem('mobile'));
+  
 
    }
  catch(e){
