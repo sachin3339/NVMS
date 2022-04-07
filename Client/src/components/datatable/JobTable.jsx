@@ -9,11 +9,11 @@ import './Table.css'
 
 
 const JobTable = () => {
-
+  const role = localStorage.getItem('role')
 
   const [data , setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(3);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postsPerPage] = useState(100);
 
   //store acces token
   const accesToken = localStorage.getItem('token');
@@ -40,9 +40,9 @@ const JobTable = () => {
 },[])
 
 //delete the vendor by id 
- const deleteHandler = (id) =>{
+//  const deleteHandler = (id) =>{
   //  e.preventDefault()
-   console.log(id)
+  //  console.log(id)
   // authAxios.delete(`http://localhost:5000/superadmin/deletevendor/${id}`)
   // .then((res)=>{
   //   console.log(res.message)
@@ -51,24 +51,24 @@ const JobTable = () => {
   //   console.log(err.message)
   // })
 // console.log(id)
-} 
+// } 
 
 
 // get current posts  for pagination
-const indexOfLastPost = currentPage * postsPerPage
-const indexOfFirstPost = indexOfLastPost - postsPerPage
+// const indexOfLastPost = currentPage * postsPerPage
+// const indexOfFirstPost = indexOfLastPost - postsPerPage
 
-const currentPosts = data.slice(indexOfFirstPost , indexOfLastPost)
+// const currentPosts = data.slice(indexOfFirstPost , indexOfLastPost)
 
 // Change page
-const paginate = pageNumber => setCurrentPage(pageNumber);
+// const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <>
     <div className="datatableTitle">
      Job requirement List
      </div>
-    <div className="tablestyle">
+    <div className="tablestyle" style={{height:"400px", overflow:"auto"}}>
 
 
     <table className="table table-hover">
@@ -79,13 +79,13 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
         <th scope='col'>Skills</th>
         <th scope="col">Client</th>
         <th scope="col">EOY</th>
-        <th scope='col'>Expiry Date</th>
+        {/* <th scope='col'>Expiry Date</th> */}
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
      
-          {currentPosts.map((item, index)=>{
+          {data.map((item, index)=>{
             return (
               <tr>
         
@@ -102,21 +102,49 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
                     <td>
                         {item.EOY}
                     </td>
-                    <td>
+                    {/* <td>
                         {item.Expiry_date}
-                    </td>
+                    </td> */}
             <td>
-            <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-             <div className="viewButton">View</div>
+          {
+            (role === 'Vendor' ?  
+            <>
+             <div className="cellAction">
+            <Link to="/job/description" style={{ textDecoration: "none" }}
+              state={{ from: [item._id,item.Details, item.Skills, item.Client, item.EOY, item.Expiry_date]}}
+            >
+             <div className="viewButton" style={{backgroundColor:"teal", color:"white" , padding:"5px"}}>Add Candidate</div>
             </Link>
-            <div
+            {/* <div
               className="deleteButton"
-              onClick={()=> deleteHandler(item._id)}
+              // onClick={()=> deleteHandler(item._id)}
             >
                Delete
-            </div>
+            </div> */}
            </div>
+            </>: 
+            <>
+             <div className="cellAction">
+            
+            <Link to="/job/editrequirement"
+              state={{ from: [item._id,item.Details, item.Skills, item.Client, item.EOY, item.Expiry_date]}}
+            >
+              
+                <button style={{ width: "100px", height: "42px", borderRadius: "10px"}}>Edit</button>
+                
+                
+                
+            </Link>
+            <button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
+Delete
+</button>
+          
+           </div>
+            </>
+           
+           
+           )
+          }
               {/* <button className='' onClick={deleteHandler(item._id)}>Delete</button> */}
             </td>
                </tr>  )
@@ -126,11 +154,13 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
   </table>
   
     </div>
-    <Pagination
+    <div className="paginateDiv"> 
+    {/* <Pagination
         postsPerPage={postsPerPage}
         totalPosts={data.length}
         paginate={paginate}
-      />
+      /> */}
+    </div>
   </>
   )
 }

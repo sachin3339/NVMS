@@ -103,16 +103,21 @@ function UploadDocument() {
     data.append("LWF", LWF);
     data.append("PF_CAL", pfallotment);
 
-    alert("Documents uploaded successfully");
-
     axios.patch(`${DevelopmentUrl}/superadmin/updatevendor/${id}`, data,{
           headers: {
             "Content-type": "multipart/form-data",
             "Authorization": `bearer ${token}`
           }
         })
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+      .then(res =>{ 
+        console.log(res)
+        alert("Documents uploaded successfully");
+      }  
+        )
+        
+      .catch(err => {console.log(err)
+        alert("Something went wrong!!");
+        }  );
   };
   
   return (

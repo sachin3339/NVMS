@@ -1,2 +1,2 @@
-const DevelopmentUrl = "http://13.233.150.147:5028";
+const DevelopmentUrl = "http://localhost:5000";
 module.exports =  DevelopmentUrl;

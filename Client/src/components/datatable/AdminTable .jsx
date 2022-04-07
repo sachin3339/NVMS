@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import Pagination from '../pagination/Pagination'
 import DevelopmentUrl from '../../data/api';
+// import Pagination from '../pagination/Pagination';
 
 
 const AdminTable = () => {
@@ -11,26 +12,21 @@ const AdminTable = () => {
 
   const [data , setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(10);
 
    //store acces token
    const accesToken = localStorage.getItem('token');
-   const apiUrl= DevelopmentUrl
-    console.log(accesToken ,"vendor  component")
- 
-   const authAxios = axios.create({
-     baseURL : apiUrl,
-     headers:{
-       Authorization: `Bearer ${accesToken}`
-     }
-   })
+  
  
 
   useEffect(()=>{
-    authAxios.get(DevelopmentUrl + "/superadmin/showadmins")
+    axios.get(DevelopmentUrl + "/superadmin/showadmins", {
+    headers: {
+      "Authorization": `bearer ${accesToken}`
+    }})
     .then((res)=>{
     setData( res.data.post)
-      console.log( res.data.post)
+      console.log( data)
     })
 .catch((err)=>{
   console.log(err)
@@ -38,18 +34,18 @@ const AdminTable = () => {
 },[])
 
 //delete the vendor by id 
- const deleteHandler = (id) =>{
-  //  e.preventDefault()
-   console.log(id)
-  // authAxios.delete(`http://localhost:5000/superadmin/deletevendor/${id}`)
-  // .then((res)=>{
-  //   console.log(res.message)
-  // })
-  // .catch(err =>{
-  //   console.log(err.message)
-  // })
-// console.log(id)
-} 
+//  const deleteHandler = (id) =>{
+//   //  e.preventDefault()
+//    console.log(id)
+//   // authAxios.delete(`http://localhost:5000/superadmin/deletevendor/${id}`)
+//   // .then((res)=>{
+//   //   console.log(res.message)
+//   // })
+//   // .catch(err =>{
+//   //   console.log(err.message)
+//   // })
+// // console.log(id)
+// } 
 
 
 // get current posts  for pagination
@@ -59,15 +55,16 @@ const indexOfFirstPost = indexOfLastPost - postsPerPage
 const currentPosts = data.slice(indexOfFirstPost , indexOfLastPost)
 
 // Change page
-const paginate = pageNumber => setCurrentPage(pageNumber);
+// const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
   return (
     <>
-    <div className="datatableTitle">
+    
+    <div className="datatableTitle" style={{marginTop:"20px"}}>
      Sub Admin List
      </div>
-    <div className="tablestyle">
+    <div className="tablestyle" style={{height:"400px", overflow:"auto"}}>
 
 
     <table className="table table-hover">
@@ -103,15 +100,14 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
                     </td>     
             <td>
             <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-             <div className="viewButton">View</div>
-            </Link>
-            <div
-              className="deleteButton"
-              onClick={()=> deleteHandler(item._id)}
-            >
-               Delete
-            </div>
+           
+            <button style={{ width: "100px", height: "42px", borderRadius: "10px"}}>
+View
+</button>
+          
+<button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
+Delete
+</button>
            </div>
               {/* <button className='' onClick={deleteHandler(item._id)}>Delete</button> */}
             </td>
@@ -121,12 +117,15 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
   
   </table>
   
-    </div>
-    <Pagination
+    </div >
+    <div className="paginateDiv"> 
+    {/* <Pagination
         postsPerPage={postsPerPage}
         totalPosts={data.length}
         paginate={paginate}
-      />
+       /> */}
+    </div>
+    
   </>
   )
 }
