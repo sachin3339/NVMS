@@ -15,7 +15,7 @@ const MapCandidateToRequirement = () => {
     const [candidateName, setCandidateName] = useState([{}])
     const [selectedOption, setSelectedOption] = useState();
     const [fetchDbCandidateName, setFetchDbCandidateName] = useState([]);
-    let obj = [];
+    let a = [], b = [];
     const accesToken = localStorage.getItem('token');
     const id = localStorage.getItem('id');
     let expdate = (from[5].slice(0, 10)).toString();
@@ -67,12 +67,54 @@ const MapCandidateToRequirement = () => {
 
     for (let i = 0; i < candidateName.length; i++) {
 
-        obj.push({
+        a.push({
             "value": candidateName[i]._id,
             "label": candidateName[i].Name
         });
     }
 
+    for (let i = 0; i < fetchDbCandidateName.length; i++) {
+
+
+        b.push({
+            "value": candidateName[i]._id,
+            "label": candidateName[i].Name
+        });
+
+    }
+    // console.log(dbAll);
+    // console.log(dbId);
+
+    // const a = [{ value: "0", display: "Jamsheer" }, { value: "1", display: "Muhammed" }, { value: "2", display: "Ravi" }, { value: "3", display: "Ajmal" }, { value: "4", display: "Ryan" }];
+    // const b = [{ value: "0", display: "Jamsheer", $$hashKey: "008" }, { value: "1", display: "Muhammed", $$hashKey: "009" }, { value: "2", display: "Ravi", $$hashKey: "00A" }, { value: "3", display: "Ajmal", $$hashKey: "00B" }];
+
+    // A comparer used to determine if two entries are equal.
+    const isSameUser = (a, b) => a.value === b.value && a.label === b.label;
+
+    // Get items that only occur in the left array,
+    // using the compareFunction to determine equality.
+    const onlyInLeft = (left, right, compareFunction) =>
+        left.filter(leftValue =>
+            !right.some(rightValue =>
+                compareFunction(leftValue, rightValue)));
+
+    const onlyInA = onlyInLeft(a, b, isSameUser);
+    const onlyInB = onlyInLeft(b, a, isSameUser);
+
+    const results = [...onlyInA, ...onlyInB];
+
+    console.log(results);
+    // const results = dbAll.filter(({ value: id1 }) => !dbId.some(({ value: id2 }) => id2 === id1));
+    // console.log(results);
+    // console.log(typeof(fetchDbCandidateName[0]._id));
+    // for (let i = 0; i < fetchDbCandidateName.length; i++) {
+
+    //     if(obj[i].value)
+    //     obj.push({
+    //         "value": candidateName[i]._id,
+    //         "label": candidateName[i].Name
+    //     });
+    // }    
     // if (fetchDbCandidateName[0]) {
     //     for (let i = 0; i < fetchDbCandidateName[0].Candidate.length; i++) {
     //         let value = fetchDbCandidateName[0].Candidate[i]._id;
@@ -193,7 +235,7 @@ const MapCandidateToRequirement = () => {
 
                                 <Select
                                     defaultValue={selectedOption}
-                                    options={obj}
+                                    options={results}
                                     isMulti
                                     closeMenuOnSelect={false}
                                     onChange={handleSelect}
@@ -211,73 +253,73 @@ const MapCandidateToRequirement = () => {
                     </form>
 
                 </div>
-                <div className="tablestyle" style={{height:"400px", overflow:"auto"}}>
+                <div className="tablestyle" style={{ height: "400px", overflow: "auto" }}>
                     {fetchDbCandidateName.length > 0 ?
-                    <>
-                    <h4>Selected Candidates List</h4>
+                        <>
+                            <h4>Selected Candidates List</h4>
 
-                    <table className="table table-hover">
+                            <table className="table table-hover">
 
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope='col'>Email</th>
-                                <th scope="col">Notice Period</th>
-                                <th scope="col">Current_CTC</th>
-                                <th scope="col">Expected CTC</th>
-                                {/* <th scope="col">Registered ID</th> */}
-                                <th scope='col'>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {fetchDbCandidateName.map((item, index) => {
-                                return (
+                                <thead>
                                     <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope='col'>Email</th>
+                                        <th scope="col">Notice Period</th>
+                                        <th scope="col">Current_CTC</th>
+                                        <th scope="col">Expected CTC</th>
+                                        {/* <th scope="col">Registered ID</th> */}
+                                        <th scope='col'>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                        <th scope="row">{index + 1}</th>
-                                        <td key={index}>
-                                            {item.Name}
-                                        </td>
+                                    {fetchDbCandidateName.map((item, index) => {
+                                        return (
+                                            <tr>
 
-                                        <td>
-                                            {item.email}
-                                        </td>
-                                        <td >
-                                            {item.Notice_Period}
-                                        </td>
-                                        <td >
-                                            {item.Current_CTC}
-                                        </td>
-                                        <td>
-                                            {item.Expected_CTC}
-                                        </td>
-                                        <td>
-                                            <div className="cellAction">
+                                                <th scope="row">{index + 1}</th>
+                                                <td key={index}>
+                                                    {item.Name}
+                                                </td>
 
-                                                <button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}
+                                                <td>
+                                                    {item.email}
+                                                </td>
+                                                <td >
+                                                    {item.Notice_Period}
+                                                </td>
+                                                <td >
+                                                    {item.Current_CTC}
+                                                </td>
+                                                <td>
+                                                    {item.Expected_CTC}
+                                                </td>
+                                                <td>
+                                                    <div className="cellAction">
 
-                                                //   onClick={() => deleteHandler(item._id)}
-                                                >
-                                                    Delete
-                                                </button>
-                                            </div>
+                                                        <button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}
 
-                                        </td>
-                                    </tr>)
-                            })}
-                        </tbody>
+                                                        //   onClick={() => deleteHandler(item._id)}
+                                                        >
+                                                            Delete
+                                                        </button>
+                                                    </div>
 
-                    </table>
-                            </>
-                            : null }
+                                                </td>
+                                            </tr>)
+                                    })}
+                                </tbody>
+
+                            </table>
+                        </>
+                        : null}
                 </div>
-               
+
             </div>
 
         </div>
-                      
+
 
     )
 }
