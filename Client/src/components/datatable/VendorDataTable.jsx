@@ -76,6 +76,7 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
       <tr>
         <th scope="col">ID</th>
         <th scope="col">POC</th>
+        <th scope="col">Company</th>
         <th scope="col" >Status</th>
         <th scope="col">Email</th>
         <th scope="col">Mobile</th>
@@ -96,7 +97,9 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
               <td key={index}>
                {item.POC}
             </td>
-              
+            <td>
+              {item.CName}
+            </td>  
                     <td style={{color:(status === true)?"RGB(50,64,168)":"RGB(168,50,56)"}} >
                       {(status === true)?"Approved":"Disapproved"}
                     </td>

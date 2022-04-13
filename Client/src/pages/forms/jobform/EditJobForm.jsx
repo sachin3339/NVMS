@@ -1,24 +1,24 @@
 import "./new.scss";
 import Sidebar from "../../../components/sidebar/SideBar";
 import Navbar from "../../../components/navbar/NavBar"
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
+//import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import DevelopmentUrl from "../../../data/api";
 import axios from 'axios'
 
 
-const JobForm = () => {
+const EditJobForm = () => {
 
   //store acces token
   const accesToken = localStorage.getItem('token');
 
   const [reqDetails, setReqDetails] = useState("");
   const [majorSkills, setMajorSkills] = useState("");
-  const [details, setDetails] = useState("");
+  //const [details, setDetails] = useState("");
   const [client, setClient] = useState("");
   const [location, setLocation] = useState("");
   const [eoy, setEoy] = useState("");
-  const [expectNumProfile, setexpectNumProfile] = useState("");
+  //const [expectNumProfile, setexpectNumProfile] = useState("");
   const [experyDate, setExperyDate] = useState("");
 
   //input handlers
@@ -39,9 +39,9 @@ const JobForm = () => {
   const eoyHandler = (e) => {
     setEoy(e.target.value)
   }
-  const expectNumProfileHandler = (e) => {
-    setexpectNumProfile(e.target.value)
-  }
+  // const expectNumProfileHandler = (e) => {
+  //   setexpectNumProfile(e.target.value)
+  // }
   const experyDateHandler = (e) => {
     setExperyDate(e.target.value)
   }
@@ -71,7 +71,7 @@ const JobForm = () => {
 
         console.log(res)
 
-          alert("Job requiremnet Added Successfully")
+          alert("Job requiremnet updated Successfully")
 
         
       }
@@ -90,7 +90,7 @@ const JobForm = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add new Job Requirement</h1>
+          <h1>Update Job Requirement</h1>
         </div>
         <div className="bottom">
 
@@ -123,7 +123,7 @@ const JobForm = () => {
                 <label>Expire Date</label>
                 <input type='date' placeholder='Expire Date' onChange={experyDateHandler} />
               </div>
-              <button type="submit">Submit</button>
+              <button type="submit">Update</button>
             </form>
           </div>
         </div>
@@ -132,4 +132,4 @@ const JobForm = () => {
   );
 };
 
-export default JobForm;
+export default EditJobForm;

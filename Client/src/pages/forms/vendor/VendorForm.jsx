@@ -76,7 +76,7 @@ const VendorForm = ({ inputs, title }) => {
       } ,
       GST: gst,
       PAN: pan,
-      CNAME: company,
+      CName: company,
       Aadhar:aadhar,
       // Document:vendorForm[11]
     }

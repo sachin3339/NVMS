@@ -79,7 +79,10 @@ const ViewDocument = () => {
               AUDIT SHEET
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[1].slice(8)}`} target="_blank">Download</a></button>
+              {from[1] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[1].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
+              
             </td>
           </tr>
           <tr>
@@ -87,7 +90,9 @@ const ViewDocument = () => {
               COI
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[2].slice(8)}`} target="_blank">Download</a> </button>
+            {from[2] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[2].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -95,8 +100,9 @@ const ViewDocument = () => {
               DSC
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[3].slice(8)}`} target="_blank">Download</a></button>
-
+            {from[3] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[3].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -104,7 +110,9 @@ const ViewDocument = () => {
               ESIC CAL
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[4].slice(8)}`} target="_blank">Download</a></button>
+            {from[4] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[4].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -112,7 +120,9 @@ const ViewDocument = () => {
               ESIC CHALLAN
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[5].slice(8)}`} target="_blank">Download</a></button>
+            {from[5] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[5].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -120,7 +130,9 @@ const ViewDocument = () => {
               ESTABLISHMENT CA
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[6].slice(8)}`} target="_blank">Download</a></button>
+            {from[6] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[6].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -128,7 +140,9 @@ const ViewDocument = () => {
               FORM 5A
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[7].slice(8)}`} target="_blank">Download</a></button>
+            {from[7] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[7].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -136,7 +150,9 @@ const ViewDocument = () => {
               GST CERT
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[8].slice(8)}`} target="_blank">Download</a></button>
+            {from[8] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[8].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -144,7 +160,9 @@ const ViewDocument = () => {
               LWF
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[9].slice(8)}`} target="_blank">Download</a></button>
+            {from[9] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[9].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -152,7 +170,9 @@ const ViewDocument = () => {
               PF_CAL
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[10].slice(8)}`} target="_blank">Download</a></button>
+            {from[10] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[10].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -160,7 +180,9 @@ const ViewDocument = () => {
               PF_CHALLAN
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[11].slice(8)}`} target="_blank">Download</a></button>
+            {from[11] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[11].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
@@ -168,7 +190,9 @@ const ViewDocument = () => {
               PT RC
             </td>
             <td>
-              <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[12].slice(8)}`} target="_blank">Download</a></button>
+            {from[12] !== '' ? <button className='viewButton'><a href={DevelopmentUrl+`/uploads/${from[12].slice(8)}`} target="_blank">Download</a></button>
+              : <p style={{"color": "red"}}>Document not uploaded</p>
+              }
             </td>
           </tr>
           <tr>
