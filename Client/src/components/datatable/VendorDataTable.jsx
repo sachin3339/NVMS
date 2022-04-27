@@ -11,6 +11,7 @@ const VendorDataTable = () => {
   const [data , setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
+  const role = localStorage.getItem('role')
   
   
   //store acces token
@@ -67,7 +68,7 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
      
      Vendor List
      </div>
-    <div className="tablestyle">
+    <div className="tablestyle" style={{height:"400px", overflow:"auto"}}>
 
 
     <table className="table  table-striped table-hover">
@@ -75,6 +76,7 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
       <tr>
         <th scope="col">ID</th>
         <th scope="col">POC</th>
+        <th scope="col">Company</th>
         <th scope="col" >Status</th>
         <th scope="col">Email</th>
         <th scope="col">Mobile</th>
@@ -86,7 +88,7 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
     </thead>
     <tbody>
      
-          {currentPosts.map((item, index)=>{
+          {data.map((item, index)=>{
             let status= item.IsApproved;
             return (
               <tr>
@@ -95,8 +97,10 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
               <td key={index}>
                {item.POC}
             </td>
-              
-                    <td >
+            <td>
+              {item.CName}
+            </td>  
+                    <td style={{color:(status === true)?"RGB(50,64,168)":"RGB(168,50,56)"}} >
                       {(status === true)?"Approved":"Disapproved"}
                     </td>
                     
@@ -117,7 +121,10 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
             </td>
             <td>
             <div className="cellAction">
-            <Link to="/vendor/viewdocument" style={{ textDecoration: "none" }}
+            {
+              (role === 'Admin') ? 
+              <>
+              <Link to="/vendor/viewdocument" style={{ textDecoration: "none" }}
              state={{ from: [item._id, item.AUDIT_SHEET, 
               item.COI,
               item.DSC,item.ESIC_CAL,
@@ -131,14 +138,16 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
               item.PT_RC ]      
             }}
             >
-             <div className="viewButton">View</div>
+                    <button style={{ width: "100px", height: "42px", borderRadius: "10px" }}>
+View
+</button>
             </Link>
-            <div
-              className="deleteButton"
-              onClick={()=> deleteHandler(item._id)}
-            >
-               Delete
-            </div>
+              </>
+              : null
+            }
+                   <button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
+Delete
+</button>
            </div>
               
               {/* <button className='' onClick={deleteHandler(item._id)}>Delete</button> */}
@@ -151,11 +160,13 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
   
     </div>
     {/* calling pagination component from pagination component   */}
-    <Pagination
+    <div className="paginateDiv"> 
+    {/* <Pagination
         postsPerPage={postsPerPage}
         totalPosts={data.length}
         paginate={paginate}
-      />
+      /> */}
+    </div>
       </div>
   </>
   )
