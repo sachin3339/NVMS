@@ -1,14 +1,14 @@
-import "./new.scss";
+import "../../forms/new.css"
 import Sidebar from "../../../components/sidebar/SideBar";
 import Navbar from "../../../components/navbar/NavBar"
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import DevelopmentUrl from "../../../data/api";
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom';
 
 const JobForm = () => {
-
+  let navigate = useNavigate();
   //store acces token
   const accesToken = localStorage.getItem('token');
 
@@ -70,7 +70,15 @@ const JobForm = () => {
       .then((res) => {
 
         console.log(res)
-
+        if(res.status===200){
+       
+        
+          // // <Redirect to='/home'/>
+          navigate("/job");
+          
+         
+          
+     }
           alert("Job requiremnet Added Successfully")
 
         

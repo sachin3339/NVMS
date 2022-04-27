@@ -1,4 +1,4 @@
-import "./new.scss";
+import "../../forms/new.css"
 import Sidebar from "../../../components/sidebar/SideBar";
 import Navbar from "../../../components/navbar/NavBar";
 import { useState } from "react";
@@ -91,6 +91,8 @@ const EditCandiateForm = () => {
 
       ).catch(err => {
         console.log(err)
+        alert("Something went wrong!")
+
       })
 
   }

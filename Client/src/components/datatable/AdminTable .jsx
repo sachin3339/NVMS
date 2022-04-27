@@ -65,7 +65,7 @@ const AdminTable = () => {
       <div className="datatableTitle" style={{ marginTop: "20px" }}>
         Sub Admin List
       </div>
-      <div className="tablestyle" style={{ height: "400px", overflow: "auto" }}>
+      <div className="tablestyle table-responsive " >
 
 
         <table className="table table-hover">

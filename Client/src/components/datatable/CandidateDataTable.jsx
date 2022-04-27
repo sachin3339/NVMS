@@ -85,7 +85,7 @@ const CandidateDataTable = () => {
         <div className="datatableTitle">
           Candidate List
         </div>
-        <div className="tablestyle" style={{height:"400px", overflow:"auto"}}>
+        <div className="tablestyle table-responsive " style={{height:"400px", overflow:"auto"}}>
 
 
           <table className="table table-hover">
