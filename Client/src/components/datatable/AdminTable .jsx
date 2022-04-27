@@ -65,7 +65,7 @@ const AdminTable = () => {
       <div className="datatableTitle" style={{ marginTop: "20px" }}>
         Sub Admin List
       </div>
-      <div className="tablestyle table-responsive " >
+      <div className="tablestyle table-responsive " style={{height:"400px", overflow:"auto"}}>
 
 
         <table className="table table-hover">
@@ -100,7 +100,7 @@ const AdminTable = () => {
                     {item.User.mobile}
                   </td>
                   <td>
-                    <div className="cellAction">
+                  <div className="cellAction">
 
                       <button style={{ width: "100px", height: "42px", borderRadius: "10px" }}>
                         <Link to="/users/editsubadmin" 
@@ -110,7 +110,7 @@ const AdminTable = () => {
                         </Link>
                       </button>
 
-                      <button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
+                      <button style={{  height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
                         Delete
                       </button>
                     </div>

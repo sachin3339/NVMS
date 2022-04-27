@@ -145,7 +145,7 @@ View
               </>
               : null
             }
-                   <button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
+                   <button style={{  height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
 Delete
 </button>
            </div>

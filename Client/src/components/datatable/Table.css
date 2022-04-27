@@ -69,6 +69,7 @@ table {
     color: crimson;
   }
   .cellAction {
+   
       display: flex;
       align-items: center;
       gap: 15px;
@@ -92,7 +93,14 @@ table {
 .table-responsive {
   max-height:300px;
   max-width: 300px;
-} }
+} 
+.cellAction {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+}
  
 
 
