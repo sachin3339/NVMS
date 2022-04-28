@@ -1,14 +1,14 @@
-import "./new.css";
+import "../../forms/new.css"
 import Sidebar from "../../../components/sidebar/SideBar";
 import Navbar from "../../../components/navbar/NavBar";
 import { useState } from "react";
 import DevelopmentUrl from "../../../data/api";
 import { useLocation } from "react-router-dom";
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom';
 
 const EditSubAdmin = () => {
-
+    let navigate = useNavigate();
     const location = useLocation();
     const { from } = location.state;
 
@@ -79,9 +79,16 @@ const EditSubAdmin = () => {
         })
             .then(res => {
                 console.log(res);
+                if(res.status===200){
+       
+        
+                    // // <Redirect to='/home'/>
+                    navigate("/users");}
                 alert("Subadmin updated Successfully")
             })
-            .catch(err => console.log(err));
+            .catch(err => {console.log(err)
+                alert("Something went wrong!")
+            });
 
     }
 

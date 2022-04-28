@@ -68,10 +68,10 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
      
      Vendor List
      </div>
-    <div className="tablestyle" style={{height:"400px", overflow:"auto"}}>
+    <div className="tablestyle table-responsive " style={{height:"400px", overflow:"auto"}}>
 
 
-    <table className="table  table-striped table-hover">
+    <table className="table  table-hover ">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -145,7 +145,7 @@ View
               </>
               : null
             }
-                   <button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
+                   <button style={{  height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
 Delete
 </button>
            </div>

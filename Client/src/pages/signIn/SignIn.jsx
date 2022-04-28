@@ -150,14 +150,13 @@
 
 
 
-
 import React, { useState } from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import DevelopmentUrl from '../../data/api';
 import { useNavigate } from 'react-router-dom';
-
+import './signin.css'
 
 
 const LoginPage = () => {
@@ -242,6 +241,8 @@ const LoginPage = () => {
 
    ).catch(err =>{
        console.log(err)
+       alert("Something went wrong!")
+
    })
 
    }
@@ -254,9 +255,9 @@ const LoginPage = () => {
         <>
         
             <Container style={{color:"blue"}}>
-                <h1 className="shadow-sm  mt-5 p-3 text-center rounded">VMS LOGIN</h1>
+                <h1 className="shadow-sm   mt-5 p-3 text-center rounded ">VMS LOGIN</h1>
                 <Row className="mt-6">
-                    <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
+                    <Col lg={5} md={6} sm={12} className="p-5 m-auto  rounded-lg loginform">
                         <Form onSubmit={submitHandler}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label >Email address</Form.Label>
@@ -270,7 +271,7 @@ const LoginPage = () => {
                             </Form.Group>
 
                             <Button variant="btn btn-outline-primary" type="submit"
-                            style={{marginTop:"50px", marginLeft:"160px",width:"120px"}}>
+                           >
                                 Login
                             </Button>
                         </Form>

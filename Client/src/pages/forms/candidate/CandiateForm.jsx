@@ -1,13 +1,13 @@
-import "./new.css";
+import "../../forms/new.css"
 import Sidebar from "../../../components/sidebar/SideBar";
 import Navbar from "../../../components/navbar/NavBar";
 import { useState } from "react";
 import axios from "axios";
 import DevelopmentUrl from "../../../data/api";
-
+import { useNavigate } from 'react-router-dom';
 
 const CandiateForm = () => {
-
+  let navigate = useNavigate();
   const accesToken = localStorage.getItem('token');
   const id = localStorage.getItem('id')
 
@@ -81,12 +81,15 @@ const CandiateForm = () => {
         console.log(formData)
         if (res.status === 200) {
           console.log(formData)
+          navigate("/candidate");
+
         }
         alert("candidate Added Successfully")
       }
 
       ).catch(err => {
         console.log(err)
+        alert("Something went wrong!")
       })
 
   }
@@ -132,7 +135,7 @@ const CandiateForm = () => {
                 <label>Resume</label>
                 <input type="file" name="CV" placeholder="Enter your Resume" onChange={resumeHandler} />
               </div>
-              <button type="submit">Submit</button>
+              <button type="submit" >Submit</button>
             </form>
           </div>
         </div>

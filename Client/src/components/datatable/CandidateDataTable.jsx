@@ -85,7 +85,7 @@ const CandidateDataTable = () => {
         <div className="datatableTitle">
           Candidate List
         </div>
-        <div className="tablestyle" style={{height:"400px", overflow:"auto"}}>
+        <div className="tablestyle table-responsive " style={{height:"400px", overflow:"auto"}}>
 
 
           <table className="table table-hover">
@@ -141,7 +141,7 @@ const CandidateDataTable = () => {
                           </button>
                         </Link>
 
-                        <button style={{ width: "100px", height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}
+                        <button style={{  height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}
 
                           onClick={() => deleteHandler(item._id)}
                         >

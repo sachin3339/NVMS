@@ -1,12 +1,12 @@
-import "./new.css";
+import "../../forms/new.css"
 import Sidebar from "../../../components/sidebar/SideBar";
 import Navbar from "../../../components/navbar/NavBar";
 import { useState } from "react";
 import axios from "axios";
 import DevelopmentUrl from "../../../data/api";
-
+import { useNavigate } from 'react-router-dom';
 const VendorForm = ({ inputs, title }) => {
-
+  let navigate = useNavigate();
   const accesToken = localStorage.getItem('token');
   
   const [company , setCompany] = useState("");
@@ -88,9 +88,21 @@ const VendorForm = ({ inputs, title }) => {
       }
     })
       .then(res => {console.log(res)
+        if(res.status===200){
+       
+        
+          // // <Redirect to='/home'/>
+          navigate("/users");
+          
+         
+          
+     }
       alert("vender added successfully")})
       
-      .catch(err => console.log(err));
+      .catch(err => {console.log(err)
+        alert("Something went wrong!")
+
+      });
 
  }
 
@@ -118,10 +130,10 @@ const VendorForm = ({ inputs, title }) => {
              
             <div className="formInput" style={{display:"flex", flexDirection:"column"}}>
                   <label>Company Name</label>
-                  <input type="text" placeholder="Enter your Comapany Name" onChange={companyHandler} />
+                  <input type="text" placeholder="Enter your Company Name" onChange={companyHandler} />
                 </div>
                 <div className="formInput" style={{display:"flex", flexDirection:"column"}}>
-                  <label>Comapny GST Number</label>
+                  <label>Company GST Number</label>
                   <input type="text" placeholder="Enter your Gst Number" onChange={gstHandler} 
                    pattern={`^([0][1-9]|[1-2][0-9]|[3][0-7])([a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}[1-9a-zA-Z]{1}[zZ]{1}[0-9a-zA-Z]{1})+$`}
 
@@ -130,7 +142,7 @@ const VendorForm = ({ inputs, title }) => {
                 </div>
                 <div className="formInput" style={{display:"flex", flexDirection:"column"}}>   
 
-                     <label> Comapany Pan NUmber</label>
+                     <label> Company Pan NUmber</label>
                   <input type="text" placeholder="Enter your Pan Number" onChange={panHandler}
                   pattern={`[A-Z]{5}[0-9]{4}[A-Z]{1}`}/>
                   <span className="spandiv">Enter valid PAN Number(with capital letters)! </span>
@@ -139,7 +151,7 @@ const VendorForm = ({ inputs, title }) => {
                          <label>Aadhar Number</label>
                   <input type="text" placeholder="Enter your Aadhar Number" 
                   onChange={aadharHandler} 
-                  pattern={"^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}$"}
+                  // pattern={"^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}$"}
                   />
                   <span className="spandiv">Enter valid Adhar Number(in  ** ** ** formate )! </span>
                 </div>
@@ -169,7 +181,7 @@ const VendorForm = ({ inputs, title }) => {
                   <input type="password" placeholder="Enter your password" onChange={passwordHandler} />
                 </div>
                 <div>
-                <button type="submit" style={{height:"50px",marginLeft:"-200px"  ,marginTop:'50px'}}>Submit</button>
+                <button type="submit" className="buttonsub">Submit</button>
 
                 </div>
 

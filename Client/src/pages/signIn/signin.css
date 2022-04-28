@@ -1,0 +1,27 @@
+
+.loginform{
+  
+    padding: 10px;
+    box-shadow: 1px 1px 7px 3px #8888886b;
+
+}
+
+
+
+@media only screen and (max-width: 1000px) and (min-width: 260px) {
+    Form{
+       width: 100%;
+    }
+}
+@media only screen and (max-width: 1000px) and (min-width: 260px) {
+    .Container{
+width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 260px) {
+    .Button{
+        width: 100%;
+
+    }
+}

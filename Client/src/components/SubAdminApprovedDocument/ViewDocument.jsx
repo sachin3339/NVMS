@@ -63,7 +63,7 @@ const ViewDocument = () => {
 
   return (
     <>
-      <table className="table   table-hover">
+      <table className="table   table-hover table-responsiveapp">
         <thead>
           <tr>
 
@@ -201,9 +201,11 @@ const ViewDocument = () => {
               <textarea rows="4" cols="80" onChange={commentHandler} ></textarea>
             </td>
             <td >
-
-              <button className="Approvebtn" onClick={approved} style={{marginTop:"170px", marginLeft:"-800px"}} >Approve</button>
+                <div className='bottombtn'>
+                <button className="Approvebtn" onClick={approved} style={{marginTop:"170px", marginLeft:"-800px"}} >Approve</button>
               <button className="deleteButton" onClick={disapproved} >Disapprove</button>
+                  </div>
+            
               {/* <div className="Submitbtnn" >Submit</div> */}
             </td>
 

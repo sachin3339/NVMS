@@ -11,6 +11,7 @@ button {
    font-weight: bold;
    cursor: pointer;
    margin-top: 10px;
+   margin-left: 35%;
  }
 
  label {
@@ -35,4 +36,13 @@ button {
  padding: 10px;
  margin: 20px;
  display: flex;
+}
+.top4{
+  margin-left: 25%;
+  margin-bottom: 8%;
+}
+.top4  h1 {
+  color: lightgray;
+  font-size: 1.5rem;
+  margin-left: 1rem;
 }

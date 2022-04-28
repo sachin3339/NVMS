@@ -1,93 +1,191 @@
 .sidebar {
-    flex: 1;
-    border-right: 0.5px solid rgb(230, 227, 227);
-    min-height: 100vh;
-    background-color: white;
-  
-  
-  
-    .top {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-      .logo {
-        font-size: 20px;
-        font-weight: bold;
-        color: #6439ff;
-      }
-    }
-  
-    hr {
-      height: 0;
-      border: 0.5px solid rgb(230, 227, 227);
-    }
-  
-    .center {
-      padding-left: 10px;
-  
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-  
-        .title {
-          font-size: 10px;
-          font-weight: bold;
-          color: #999;
-          margin-top: 15px;
-          margin-bottom: 5px;
-        }
-  
-        li {
-          display: flex;
-          align-items: center;
-          padding: 5px;
-          cursor: pointer;
-  
-          &:hover {
-            background-color: #ece8ff;
-          }
-  
-          .icon {
-            font-size: 18px;
-            color: #7451f8;
-          }
-  
-          span{
-              font-size: 13px;
-              font-weight: 600;
-              color: #888;
-              margin-left: 10px;
-          }
-        }
-      }
-    }
-  
-    .bottom{
-        display: flex;
-        align-items: center;
-        margin: 10px;
-  
-        .colorOption{
-            width: 20px;
-            height: 20px;
-            border-radius: 5px;
-            border: 1px solid #7451f8;
-            cursor: pointer;
-            margin: 5px;
-  
-            &:nth-child(1){
-                background-color: whitesmoke;
-            }
-            &:nth-child(2){
-                background-color: #333;
-            }
-            &:nth-child(3){
-                background-color: darkblue;
-            }
-        }
+  flex: 1;
+  border-right: 0.5px solid rgb(230, 227, 227);
+  min-height: 100vh;
+  background-color: white;
+
+
+
+  .top {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #6439ff;
     }
   }
-  
+
+  hr {
+    height: 0;
+    border: 0.5px solid rgb(230, 227, 227);
+  }
+
+  .center {
+    padding-left: 10px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .title {
+        font-size: 10px;
+        font-weight: bold;
+        color: #999;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #ece8ff;
+        }
+
+        .icon {
+          font-size: 18px;
+          color: #7451f8;
+        }
+
+        span{
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .bottom{
+      display: flex;
+      align-items: center;
+      margin: 10px;
+
+      .colorOption{
+          width: 20px;
+          height: 20px;
+          border-radius: 5px;
+          border: 1px solid #7451f8;
+          cursor: pointer;
+          margin: 5px;
+
+          &:nth-child(1){
+              background-color: whitesmoke;
+          }
+          &:nth-child(2){
+              background-color: #333;
+          }
+          &:nth-child(3){
+              background-color: darkblue;
+          }
+      }
+  }
+}
+@media only screen and (min-device-width: 280px)  {
+  .sidebar{
+    max-width: 50%;
+  }
+ }
+
+ /* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}
+
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+} }
+/**********
+iPad 3
+**********/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}}
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}}
+
+/* iPhone 4 ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.sidebar{
+  max-width: 30%;
+} }
+
+/* iPhone 5 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+.sidebar{
+  max-width: 30%;
+}}

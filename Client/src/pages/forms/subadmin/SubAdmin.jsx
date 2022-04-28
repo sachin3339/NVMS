@@ -1,13 +1,13 @@
-import "./new.css";
+import "../../forms/new.css"
 import Sidebar from "../../../components/sidebar/SideBar";
 import Navbar from "../../../components/navbar/NavBar";
 import { useState } from "react";
 import DevelopmentUrl from "../../../data/api";
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom';
 
 const SubAdmin = () => {
-
+  let navigate = useNavigate();
   //store acces token
   const accesToken = localStorage.getItem('token');
 
@@ -71,9 +71,23 @@ const SubAdmin = () => {
         
       }
     })
-      .then(res => console.log(res))
+      .then(res => {console.log(res)
+
+        if(res.status===200){
+       
+        
+          // // <Redirect to='/home'/>
+          navigate("/users");
+          
+         
+          
+     }
+        alert("subadmin created Successfully")
+       })
       .catch(err => console.log(err));
-      alert("subadmin created Successfully")
+      
+      alert("Something went wrong!")
+
     }
 
 
@@ -130,7 +144,7 @@ const SubAdmin = () => {
                 <span className="spandiv">Enter vslid GST!</span>
               </div>
 
-              <button type="submit" style={{height:"50px",marginLeft:"-200px"  ,marginTop:'50px'}}>Submit</button>
+              <button type="submit" className="" >Submit</button>
             </form>
           </div>
         </div>
