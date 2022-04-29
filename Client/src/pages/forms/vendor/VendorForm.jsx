@@ -124,8 +124,119 @@ const VendorForm = ({ inputs, title }) => {
           <h1>Add New Vendor</h1>
         </div>
         <div className="bottom">
+        <div className="right">
+            <form onSubmit={vendorFormSubmit}>
+            <div className="container">
+            <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" placeholder="Enter your Company Name" onChange={companyHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Company Name</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input type="text" placeholder="Enter your Gst Number" onChange={gstHandler} 
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Company GST Number</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" placeholder="Enter your Pan Number" onChange={panHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Company Pan NUmber</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input  type="text" placeholder="Enter your Aadhar Number" 
+                  onChange={aadharHandler} 
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Aadhar Number</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" placeholder="Enter your contact person" onChange={contactHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Point of Contact</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input  type="text" placeholder="Enter your User name" onChange={userHandler}
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">User Name</label>
+</div>
+ </div>
+</div>
+   </div>
+
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="tel" placeholder="Enter your Mobile Number" onChange={mobileHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Mobile Number</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input  type="text" placeholder="Enter your Email Id" onChange={emailHandler} 
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Email Id</label>
+</div>
+ </div>
+</div>
+   </div>
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="password" placeholder="Enter your password" onChange={passwordHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Password</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+<button type="submit" className="">Submit</button>
+</div>
+ </div>
+</div>
+   </div>
+   </div>
+  
+      
+            </form>
          
-          <div className="right">
+         
+          </div>
+          {/* <div className="right">
             <form onSubmit={vendorFormSubmit}>
              
             <div className="formInput" style={{display:"flex", flexDirection:"column"}}>
@@ -181,12 +292,12 @@ const VendorForm = ({ inputs, title }) => {
                   <input type="password" placeholder="Enter your password" onChange={passwordHandler} />
                 </div>
                 <div>
-                <button type="submit" className="buttonsub">Submit</button>
+                <button type="submit" className="">Submit</button>
 
                 </div>
 
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

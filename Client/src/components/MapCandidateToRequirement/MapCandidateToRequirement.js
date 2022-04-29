@@ -6,6 +6,8 @@ import Sidebar from '../sidebar/SideBar';
 import Navbar from '../navbar/NavBar';
 import Select from 'react-select';
 import '../datatable/Table.css';
+
+import './mapcandidate.css'
 const MapCandidateToRequirement = () => {
 
     const location = useLocation();
@@ -165,12 +167,18 @@ const MapCandidateToRequirement = () => {
     return (
 
         <div className="list">
+              
             <Sidebar />
+           
+
+            <div className=''>
+           
             <div className="listContainer">
                 <Navbar />
 
 
-                <div style={{ marginLeft: "30px", marginTop: "10px", width: "70%", height: "auto" }}>
+    
+                <div className='jobDiscription' >
 
                     <h3>Job Description </h3>
 
@@ -253,7 +261,7 @@ const MapCandidateToRequirement = () => {
                     </form>
 
                 </div>
-                <div className="tablestyle" style={{ height: "400px", overflow: "auto" }}>
+                <div className="tablestyle table-responsive" style={{ height: "400px", overflow: "auto" }}>
                     {fetchDbCandidateName.length > 0 ?
                         <>
                             <h4>Selected Candidates List</h4>
@@ -317,7 +325,7 @@ const MapCandidateToRequirement = () => {
                 </div>
 
             </div>
-
+            </div>
         </div>
 
 

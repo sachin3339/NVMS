@@ -102,9 +102,74 @@ const EditJobForm = () => {
         </div>
         <div className="bottom">
 
-          <div className="right">
+        <div className="right">
             <form onSubmit={jobFormSubmit}>
+            <div className="container">
+            <div class="mb-3">
 
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type='text' placeholder='Requirement Details' onChange={reqDetalsHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Requirement Details</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input type='text' placeholder='Major Skills ' onChange={majorSkillsHandler}
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Major Skills</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type='text' placeholder='Client' onChange={clientHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Client</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input  type='text' placeholder='Location' onChange={locationHandler}
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Location</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type='text' placeholder='Expected Years of experience' onChange={eoyHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Expected Years of experience</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input  type='date' placeholder='Expire Date' onChange={experyDateHandler}
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Expire Date</label>
+</div>
+ </div>
+</div>
+   </div>
+   </div>
+   {/* </div>
               <div className="formInput" >
                 <label>Requirement Details</label>
                 <input type='text' placeholder='Requirement Details' onChange={reqDetalsHandler} />
@@ -130,9 +195,11 @@ const EditJobForm = () => {
               <div className="formInput" >
                 <label>Expire Date</label>
                 <input type='date' placeholder='Expire Date' onChange={experyDateHandler} />
-              </div>
-              <button type="submit">Update</button>
+              </div> */}
+              <button type="submit">Submit</button>
             </form>
+         
+         
           </div>
         </div>
       </div>

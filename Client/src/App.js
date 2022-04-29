@@ -15,7 +15,7 @@ import CandiateForm from './pages/forms/candidate/CandiateForm';
 import EditCandiateForm from './pages/forms/candidate/EditCandidateForm';
 import MapCandidateToRequirement from "./components/MapCandidateToRequirement/MapCandidateToRequirement"
 // import ProtectedRoute from "./components/protectedRoutes/ProtectedRoute";
-
+import './App.css'
 
 function App() {
 

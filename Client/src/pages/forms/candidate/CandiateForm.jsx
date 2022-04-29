@@ -108,7 +108,74 @@ const CandiateForm = () => {
 
           <div className="right">
             <form onSubmit={addingCandidateFormSubmit}>
+           
+            <div className="container">
+            <div class="mb-3">
 
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" name = "Name" placeholder="Enter Candidate Name" onChange={nameHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Name</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input type="text" name = "email" placeholder="Enter your Email" onChange={emailHandler} 
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Email</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" name = "Notice_Period" placeholder="Enter Notice Period" onChange={noticeHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Notice Period</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input  type="text" name = "Current_CTC" placeholder="Enter Current CTC" onChange={currentHandler} 
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Current CTC</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" name = "Expected_CTC" placeholder="Enter Expected CTC" onChange={expectedHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Expected CTC</label>
+</div>
+  </div>
+<div class="col-sm">
+
+<label for="formFile" class="form-label">Resume</label>
+                       <input class="form-control" type="file" id="formFile" name="CV" placeholder="Enter your Resume" onChange={resumeHandler}  />
+
+ </div>
+</div>
+   </div>
+
+   
+   </div>
+      
+{/*             
               <div className="formInput">
                 <label>Name</label>
                 <input type="text" name = "Name" placeholder="Enter Candidate Name" onChange={nameHandler} />
@@ -132,9 +199,10 @@ const CandiateForm = () => {
                 <input type="text" name = "Expected_CTC" placeholder="Enter Expected CTC" onChange={expectedHandler} />
               </div>
               <div className="formInput">
-                <label>Resume</label>
-                <input type="file" name="CV" placeholder="Enter your Resume" onChange={resumeHandler} />
-              </div>
+                <label></label>
+                <label for="formFile" class="form-label">Resume</label>
+                       <input class="form-control" type="file" id="formFile" name="CV" placeholder="Enter your Resume" onChange={resumeHandler}/>
+              </div> */}
               <button type="submit" >Submit</button>
             </form>
           </div>
