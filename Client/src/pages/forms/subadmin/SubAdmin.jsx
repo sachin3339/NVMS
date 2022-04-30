@@ -103,8 +103,90 @@ const SubAdmin = () => {
 
           <div className="right">
             <form onSubmit={subAdminFormSubmit}>
+            <div className="container">
+            <div class="mb-3">
 
-              <div className="formInput"  style={{display:"flex", flexDirection:"column"}}>
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" placeholder="Enter your Name" onChange={nameHanlder}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Name</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input type="mail" placeholder="Enter your email" onChange={emailHanlder} 
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Email</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="tel" placeholder="Enter your Mobile" onChange={mobileHanlder}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Mobile Number</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input  type="Password" placeholder="Password" onChange={passwordHanlder}
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Password</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" placeholder="Enter your Reporting manager" onChange={reportingManagerHanlder}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Reporting Manager</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input type="text" placeholder="Enter your Emp Id" onChange={empIDHanlder} 
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Employee ID</label>
+</div>
+ </div>
+</div>
+   </div>
+
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" placeholder="Enter your GST" onChange={gstHanlder}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">GST</label>
+</div>
+  </div>
+<div class="col-sm">
+
+<button type="submit" className="">Submit</button>
+</div>
+   </div>
+  
+   </div>
+   </div>
+              {/* <div className="formInput"  style={{display:"flex", flexDirection:"column"}}>
                 <label>Name</label>
                 <input type="text" placeholder="Enter your Name" onChange={nameHanlder} />
               </div>
@@ -126,7 +208,7 @@ const SubAdmin = () => {
                   //  pattern= {`^(?=.[0-9])(?=.[a-zA-Z])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&*]{8,20}$`}
                      />
 {/* <span className="spandiv">Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!</span>     */}
-        </div>
+        {/* </div>
               <div className="formInput"  style={{display:"flex", flexDirection:"column"}}>
                 <label>Reporting Manager</label>
                 <input type="text" placeholder="Enter your Reporting manager" onChange={reportingManagerHanlder} />
@@ -144,7 +226,7 @@ const SubAdmin = () => {
                 <span className="spandiv">Enter vslid GST!</span>
               </div>
 
-              <button type="submit" className="" >Submit</button>
+              <button type="submit" className="" >Submit</button>  */}
             </form>
           </div>
         </div>

@@ -102,7 +102,7 @@ const AdminTable = () => {
                   <td>
                   <div className="cellAction">
 
-                      <button style={{ width: "100px", height: "42px", borderRadius: "10px" }}>
+                      <button style={{ marginLeft:'-30px',height: "42px", borderRadius: "10px" }}>
                         <Link to="/users/editsubadmin" 
                           state={{from: [item.Reporting_Manager, item.EMP_ID]}}
                         >
@@ -110,7 +110,7 @@ const AdminTable = () => {
                         </Link>
                       </button>
 
-                      <button style={{  height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
+                      <button style={{ marginLeft:'-10px', height: "42px", borderRadius: "10px", backgroundColor: "#e14c4ce8" }}>
                         Delete
                       </button>
                     </div>

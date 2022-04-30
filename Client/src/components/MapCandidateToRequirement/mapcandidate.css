@@ -1,0 +1,52 @@
+.jobDiscription{
+
+    margin-left: 30px;
+     margin-top: 10px;
+      width: 70%;
+       height: auto;
+} 
+.list {
+    display: flex;
+    width: 100%;
+}
+  
+    .listContainer {
+      flex: 6;
+    }
+  .sidebar{
+      /* width: 30%; */
+  }
+ 
+ 
+ /* media query */
+  
+  
+ @media only screen and (max-width: 1024px) and (min-width: 768px) {
+    .mapcandidate{
+        width: 70%;
+    }
+   }
+  
+  @media only screen and (max-width: 1280px) and (min-width: 820px) {
+    .mapcandidate{
+        width: 70%;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 1368px) and (min-width: 912px) {
+   
+   }
+   @media only screen and (max-width: 800px) and (min-width: 360px) {
+    .mapcandidate{
+        width: 70%;
+    }
+   }
+  
+   @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+   
+    .mapcandidate{
+        width: 70%;
+    }
+  
+  }

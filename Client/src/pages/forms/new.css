@@ -5,6 +5,9 @@
     .newContainer {
       flex: 6;
     }
+    .container{
+      margin-top: 1rem;
+    }
      
       .bottom {
         -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
@@ -135,7 +138,7 @@
    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
    
    .formInput{
-     width: 100%;
+    width: 90%;
    }
    button {
     width: 150px;

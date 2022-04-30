@@ -375,123 +375,105 @@ function UploadDocument() {
           <div className="right">
             <div className="formInput">
               <form onSubmit={send}>
-                <div className="container">
+                <div className="container1">
                   <div className="top4">
                     <h1>Upload All The Documents </h1>
                   </div>
                   <div class="mb-3">
 
                   <div class="row justify-content-around">
-                    <div class="col-4">
-                    <label>ESIC code allotment letter</label>
-                    <input
-                      type="file"
-                      name="ESIC_CAL"
-                      onChange={esiHandler}
-                    />
+                    <div class=" col-sm">
+                    <label for="formFile" class="form-label">ESIC code allotment letter</label>
+                       <input class="form-control" type="file" id="formFile" name="ESIC_CAL"
+                      onChange={esiHandler}/>
                     </div>
-                 <div class="col-4">
-                     <lable>The last month PF challan with the ECR</lable>
-                    <input
-                      type="file"
-                      name="PF_CHALLAN"
-                      onChange={pfchallanECRHandler}
-                    />
+                 <div class="col-sm">
+                 <label for="formFile" class="form-label">The last month PF challan with the ECR</label>
+                       <input class="form-control" type="file" id="formFile"  name="PF_CHALLAN"
+                      onChange={pfchallanECRHandler}/>
+                   
                  </div>
                      </div>
                      </div>
                      <div class="mb-3">
+                    
                    <div class="row justify-content-around">
-                    <div class="col-4">
-                    <lable>Paid ESIC challan with the contribution History</lable>
-                    <input
-                      type="file"
-                      name="ESIC_CHALLAN"
-                      onChange={esicchallanHandler}
-                    />
+                    <div class="col-sm">
+                    <label for="formFile" class="form-label">Paid ESIC challan with the contribution History</label>
+                       <input class="form-control" type="file" id="formFile"  name="ESIC_CHALLAN"
+                      onChange={esicchallanHandler}/>
+                   
                      </div>
-                    <div class="col-4">
-                    <lable>PT Registration certificate (if applicable)</lable>
-                    <input
-                      type="file"
-                      name="PT_RC"
-                      onChange={PTRegistrationHandler}
-                    />
+                    <div class="col-sm">
+                    <label for="formFile" class="form-label">PT Registration certificate (if applicable)</label>
+                       <input class="form-control" type="file" id="formFile"  name="PT_RC"
+                      onChange={PTRegistrationHandler}/>
+                   
                      </div>
                     </div>
                     </div>
                     <div class="mb-3">
+                      
                  <div class="row justify-content-around">
-                  <div class="col-4">
-                  <lable>Company Audited Balance sheet for last 3 years</lable>
-                    <input
-                      type="file"
-                      name="AUDIT_SHEET"
-                      onChange={CompanyAuditedHandler}
-                    />
+                  <div class="col-sm">
+                  <label for="formFile" class="form-label">Company Audited Balance sheet for last 3 years</label>
+                       <input class="form-control" type="file" id="formFile"  name="AUDIT_SHEET"
+                      onChange={CompanyAuditedHandler}/>
                     </div>
-                  <div class="col-4">
-                  <lable>Form 5A under PF act</lable>
-                  <input
-                    type="file"
-                    name="FORM_5A"
-                    onChange={Form5AHandler}
-                  />
+                  <div class="col-sm">
+                  <label for="formFile" class="form-label">Form 5A under PF act</label>
+                       <input class="form-control" type="file" id="formFile"  name="FORM_5A"
+                    onChange={Form5AHandler}/>
+                 
                      </div> 
                  </div>
                  </div>
                  <div class="mb-3">
                  <div class="row justify-content-around">
-                  <div class="col-4">
-                  <lable>Shop and establishment certificate</lable>
-                    <input
-                      type="file"
-                      name="ESTABLISHMENT_CA"
-                      onChange={ShopestablishmentcertificateHandler}
-                    />
+                  <div class="col-sm">
+                  <label for="formFile" class="form-label">Shop and establishment certificate</label>
+                       <input class="form-control" type="file" id="formFile" name="ESTABLISHMENT_CA"
+                      onChange={ShopestablishmentcertificateHandler}/>
+              
                    </div>
-                     <div class="col-4">
-                     <lable>DSC (Digital Signature Certificate)</lable>
-                    <input
-                      type="file"
-                      name="DSC"
-                      onChange={DSCHandler} />
+                     <div class="col-sm">
+                     <label for="formFile" class="form-label">DSC (Digital Signature Certificate)</label>
+                       <input class="form-control" type="file" id="formFile"  name="DSC"
+                      onChange={DSCHandler}/>
                    </div>
                 </div>
                 </div>
                 <div class="mb-3">
                      <div class="row justify-content-around">
-                        <div class="col-4">
-                        <lable>Certificate of Incorporation</lable>
-                              <input
-                              type="file"
-                                     name="COI"
-                             onChange={IncorporationHandler} />
+                        <div class="col-sm">
+                        <label for="formFile" class="form-label">Certificate of Incorporation</label>
+                       <input class="form-control" type="file" id="formFile"    name="COI"
+                             onChange={IncorporationHandler}/>
+                      
                          </div>
-                         <div class="col-4">
-                         <lable>GST Certificate</lable>
-                                 <input
-                                 type="file"
-                                 name="GST_CERT"
+                         <div class="col-sm">
+                  
+                         <label for="formFile" class="form-label">GST Certificate</label>
+                       <input class="form-control" type="file" id="formFile" name="GST_CERT"
                                 onChange={GSTHandler} />
+                        
                              </div>
                              </div>
                              </div>
                              <div class="mb-3">
                   <div class="row justify-content-around">
-                        <div class="col-4">
-                        <lable> LWF for the state</lable>
-                        <input
-                        type="file"
-                        name="LWF"
-                        onChange={LWFHandler} />
+                        <div class="col-sm">
+                          
+                        <label for="formFile" class="form-label">LWF for the state</label>
+                       <input class="form-control" type="file" id="formFile"   name="LWF"
+                        onChange={LWFHandler}/>
+                      
                          </div>
-                       <div class="col-4">
-                       <lable> PF code allotment letter</lable>
-                              <input
-                              type="file"
-                              name="PF_CAL"
-                             onChange={pfallotmentHandler} />
+                       <div class="col-sm">
+                       <label for="formFile" class="form-label"> PF code allotment letter</label>
+                       <input class="form-control" type="file" id="formFile"      name="PF_CAL"
+                             onChange={pfallotmentHandler}/>
+                      
                              </div>
                          </div>
                          </div>

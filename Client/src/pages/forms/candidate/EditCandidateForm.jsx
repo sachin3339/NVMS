@@ -112,7 +112,72 @@ const EditCandiateForm = () => {
           <div className="right">
             <form onSubmit={addingCandidateFormSubmit}>
 
-              <div className="formInput">
+            <div className="container">
+            <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" name = "Name" value={name} onChange={nameHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Name</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input type="text" name = "email" value={email}  onChange={emailHandler} 
+   class="form-control" id="floatingInput" />
+  
+  <label for="floatingInput">Email</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" name = "Notice_Period" value={notice}  onChange={noticeHandler}
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Notice Period</label>
+</div>
+  </div>
+<div class="col-sm">
+<div class="form-floating mb-3">
+  <input type="text" name = "Current_CTC" value={cctc}  onChange={currentHandler}
+   class="form-control" id="floatingInput" 
+   />
+  <label for="floatingInput">Current CTC</label>
+</div>
+ 
+</div>
+   </div>
+   </div>
+   <div class="mb-3">
+
+<div class="row justify-content-around">
+  <div class=" col-sm">
+  <div class="form-floating mb-3">
+  <input type="text" name = "Expected_CTC" value={ectc} onChange={expectedHandler} 
+  class="form-control" id="floatingInput"/>
+  <label for="floatingInput">Expected CTC</label>
+</div>
+  </div>
+<div class="col-sm">
+
+<button type="submit" >Submit</button>
+ </div>
+</div>
+   </div>
+
+   
+   </div>
+               
+
+              {/* <div className="formInput">
                 <label>Name</label>
                 <input type="text" name = "Name" value={name} onChange={nameHandler} />
               </div>
@@ -131,14 +196,14 @@ const EditCandiateForm = () => {
               <div className="formInput" style={{marginLeft:"-190px"}}>
                 <label>Expected CTC</label>
                 <input type="text" name = "Expected_CTC" value={ectc} onChange={expectedHandler} />
-              </div>
+              </div> */}
               {/* <div className="formInput">
                 <label>Resume</label>
                 <input type="file" name="CV" placeholder="Enter your Resume" onChange={resumeHandler} />
               </div> */}
-               <div style={{marginTop:"20px", marginLeft:"-200px"}}>
+               {/* <div style={{marginTop:"20px", marginLeft:"-200px"}}>
                <button type="submit">Update</button>
-              </div>
+              </div> */}
              
             </form>
           </div>
